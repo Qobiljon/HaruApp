@@ -52,7 +52,7 @@ export class Ht2Pg38Page {
 		public api: ApiProvider,
 		public media: Media,
 		public alertCtrl: AlertController
-	){
+	){}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad Pg38Page');

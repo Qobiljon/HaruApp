@@ -17,11 +17,11 @@ export class HcSplashPage {
 
   	this.params.data = {
       "duration" : 3000,
-      "backgroundImage" : 'assets/img/background.jpg',
-      "logo" : 'assets/img/logo.png',
+      "backgroundImage" : 'assets/hc/img/background.jpg',
+      "logo" : 'assets/hc/img/logo.png',
       "title" : '정신건강 자기관리 프로그램',
       "content" : appPartName,
-      "copyright" : 'assets/img/copyright.png'
+      "copyright" : 'assets/hc/img/copyright.png'
   	}
 
   	this.params.events = {
@@ -30,9 +30,9 @@ export class HcSplashPage {
 
           if (storage.isLoggedIn())
           {
-              navCtrl.setRoot('TabsPage');
+              navCtrl.setRoot('HcTabsPage');
           } else {
-              navCtrl.setRoot('LoginPage');
+              navCtrl.setRoot('HcLoginPage');
           }
   		}
   	}

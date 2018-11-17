@@ -50,6 +50,7 @@ export class Ht2Pg16Page {
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad Pg16Page');
+	}
 
 	// 사용자데이터 저장
 	saveUcData(isPassed: boolean)

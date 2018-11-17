@@ -7,7 +7,7 @@ import { StorageProvider } from '../../../providers/ht3/storage/storage';
 import { UtilProvider } from '../../../providers/ht3/util/util';
 import { ApiProvider } from '../../../providers/ht3/api/api';
 import { Chart } from 'chart.js';
-import { TimerComponent } from '../../components/timer/timer';
+import { TimerComponent } from '../../../components/timer/timer';
 import { Ht3PgConfig } from '../config/pg.config';
 import { Ht3Pg20Data } from './ht3_pg20.data';
 
@@ -47,7 +47,7 @@ export class Ht3Pg20Page {
 		public util: UtilProvider,
 		public api: ApiProvider,
 		public media: Media
-	){
+	){}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad Pg20Page');

@@ -45,7 +45,7 @@ export class Ht3Pg24Page {
 		public util: UtilProvider,
 		public api: ApiProvider,
 		public media: Media
-	){
+	){}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad Pg24Page');

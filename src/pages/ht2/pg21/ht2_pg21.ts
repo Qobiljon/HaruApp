@@ -51,7 +51,7 @@ export class Ht2Pg21Page {
 		public util: UtilProvider,
 		public api: ApiProvider,
 		public media: Media	
-	){
+	){}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad Pg21Page');

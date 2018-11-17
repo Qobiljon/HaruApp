@@ -85,7 +85,7 @@ export class HcHaruCardPage {
 		}
 		else
 		{
-			let ratingModal = this.modalCtrl.create('RatingPage');
+			let ratingModal = this.modalCtrl.create('HcRatingPage');
 
 			ratingModal.onDidDismiss(data => {
 				if (data.mode == 'close') {

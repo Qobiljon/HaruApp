@@ -30,7 +30,7 @@ export class Ht3SplashPage {
           {
               navCtrl.setRoot('TabsPage');
           } else {
-              navCtrl.setRoot('LoginPage');
+              navCtrl.setRoot('Ht3LoginPage');
           }
   		}
   	}

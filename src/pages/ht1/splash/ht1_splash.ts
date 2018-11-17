@@ -28,9 +28,9 @@ export class Ht1SplashPage {
 
           if (storage.isLoggedIn())
           {
-              navCtrl.setRoot('TabsPage');
+              navCtrl.setRoot('Ht1TabsPage');
           } else {
-              navCtrl.setRoot('LoginPage');
+              navCtrl.setRoot('Ht1LoginPage');
           }
   		}
   	}

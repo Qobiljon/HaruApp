@@ -314,7 +314,7 @@ export class Ht1HomePage {
 				{
 					this.util.alert(this.userName + '님은 현재 오늘하루 [우울·불안] 대상자가 아닙니다.');
 
-					this.rootNavCtrl.push('LoginPage', {
+					this.rootNavCtrl.push('Ht1LoginPage', {
 						pageName: 'logout'
 					});
 					return;
@@ -551,7 +551,7 @@ export class Ht1HomePage {
 
 	openHistory()
 	{
-		let historyModal = this.modalCtrl.create('HistoryPage');
+		let historyModal = this.modalCtrl.create('Ht1HistoryPage');
 
 		historyModal.onDidDismiss(data => {
 			if (data.mode == 'close') {
@@ -564,7 +564,7 @@ export class Ht1HomePage {
 
 	openRatingHistory()
 	{
-		let ratingHistoryModal = this.modalCtrl.create('RatingHistoryPage');
+		let ratingHistoryModal = this.modalCtrl.create('Ht1RatingHistoryPage');
 
 		ratingHistoryModal.onDidDismiss(data => {
 		if (data.mode == 'close') {
@@ -579,7 +579,7 @@ export class Ht1HomePage {
 
 	openRatingGraph()
 	{
-		let ratingGraphModal = this.modalCtrl.create('RatingGraphPage');
+		let ratingGraphModal = this.modalCtrl.create('Ht1RatingGraphPage');
 
 		ratingGraphModal.onDidDismiss(data => {
 		if (data.mode == 'close') {
@@ -594,7 +594,7 @@ export class Ht1HomePage {
 
 	openAlarm()
 	{
-		let alarmModal = this.modalCtrl.create('AlarmPage');
+		let alarmModal = this.modalCtrl.create('Ht1AlarmPage');
 
 		alarmModal.onDidDismiss(data => {
 			if (data.mode == 'close') {
@@ -638,7 +638,7 @@ export class Ht1HomePage {
 
 			if (selectCount > 0) {
 				// 기프티콘 선택 팝업
-				let giftModal = this.modalCtrl.create('GiftPage');
+				let giftModal = this.modalCtrl.create('Ht1GiftPage');
 
 				giftModal.onDidDismiss(data => {
 				if (data.mode == 'close') {

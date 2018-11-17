@@ -2,7 +2,7 @@
   <ion-navbar hideBackButton transparent>
     <ion-buttons (click)="close()" left>
       <button ion-button class="header-btn header-color" icon-start>
-         <img src="assets/ht3/ht3/img/common/home_btn.png" alt="">
+         <img src="assets/ht3/img/common/home_btn.png" alt="">
       </button>
     </ion-buttons>
     <ion-buttons left>
@@ -12,15 +12,15 @@
     </ion-buttons>
     <ion-buttons end>
       <button ion-button class="header-btn mute-color" *ngIf="pgConfig.volumeState == '0'" (click)="changeVolumeState()">
-        <img src="assets/ht3/ht3/img/common/mute_btn.png" alt="">
+        <img src="assets/ht3/img/common/mute_btn.png" alt="">
       </button>
       <button ion-button class="header-btn sound-color" *ngIf="pgConfig.volumeState == '1'" (click)="changeVolumeState()">
-        <img src="assets/ht3/ht3/img/common/sound_btn.png" alt="">
+        <img src="assets/ht3/img/common/sound_btn.png" alt="">
       </button>
     </ion-buttons>
     <ion-buttons end>
       <button ion-button class="header-btn header-color" *ngIf="item && item.ht_audio != ''" (click)="playSound(item.ht_base_audio, item.ht_pcode, item.ht_audio)">
-        <img src="assets/ht3/ht3/img/common/play_btn.png" alt="">
+        <img src="assets/ht3/img/common/play_btn.png" alt="">
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -258,7 +258,7 @@
                   </div>
                 </td>
                 <td width="40%" text-center>
-                  <div><img src="assets/ht3/ht3/img/common/body.png" class="achebody"></div>
+                  <div><img src="assets/ht3/img/common/body.png" class="achebody"></div>
                   <div text-center><button ion-button [disabled]="dtPg.isTodayAcheBody" (click)="sendTodayAcheBody()">제출하기</button></div>
                 </td>
                 <td width="20%" text-left>
@@ -335,7 +335,7 @@
             <table width="100%">
               <tr>
                 <td width="15%" text-center>
-                  <img src="assets/ht3/ht3/img/common/p19_1.png">
+                  <img src="assets/ht3/img/common/p19_1.png">
                 </td>
                 <td width="85%">
                   <span [innerHTML]="dtPg1st.textUcInput31[dtPg1st.resultUcInput31]"></span>
@@ -345,7 +345,7 @@
             <table width="100%">
               <tr>
                 <td width="15%" text-center rowspan="6">
-                  <img src="assets/ht3/ht3/img/common/p19_2.png">
+                  <img src="assets/ht3/img/common/p19_2.png">
                 </td>
                 <td width="40%">
                   <b>어디가 아픈가?</b>
@@ -404,7 +404,7 @@
             <table width="100%">
               <tr>
                 <td width="15%" text-center>
-                  <img src="assets/ht3/ht3/img/common/p19_3.png">
+                  <img src="assets/ht3/img/common/p19_3.png">
                 </td>
                 <td width="85%">
                   <span [innerHTML]="dtPg1st.textUcInput41[dtPg1st.resultUcInput41]"></span>
@@ -605,13 +605,13 @@
 <div no-border class="footer-container">
     <ion-buttons left class="footer-left">
       <button ion-button class="footer-btn footer-color" (click)="goPrev()">
-         <img src="assets/ht3/ht3/img/common/prev_btn.png" alt="">
+         <img src="assets/ht3/img/common/prev_btn.png" alt="">
       </button>
     </ion-buttons>
 
     <ion-buttons end class="footer-right">
       <button ion-button class="footer-btn footer-color" (click)="goNext()" >
-        <img src="assets/ht3/ht3/img/common/next_btn.png" alt="">
+        <img src="assets/ht3/img/common/next_btn.png" alt="">
       </button>
     </ion-buttons>
 </div>

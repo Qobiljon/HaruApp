@@ -49,7 +49,7 @@ export class Ht3Pg09Page {
 		public api: ApiProvider,
 		public media: Media,
 		public youtube: YoutubeVideoPlayer
-	){
+	){}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad Pg09Page');

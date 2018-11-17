@@ -45,7 +45,7 @@ export class Ht3Pg46Page {
 		public util: UtilProvider,
 		public api: ApiProvider,
 		public media: Media
-	){
+	){}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad Pg46Page');
@@ -738,4 +738,4 @@ export class Ht3Pg46Page {
 	openUrl(url) {
 		this.util.openUrl(url);
 	}
-}}
+}

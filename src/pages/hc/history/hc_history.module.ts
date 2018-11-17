@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { HcHistoryPage } from './history';
+import { HcHistoryPage } from './hc_history';
 
 @NgModule({
   declarations: [

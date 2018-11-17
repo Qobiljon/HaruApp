@@ -63,7 +63,7 @@ export class Ht1LoginPage {
 
 			if (responseData.mode == 'login' && responseData.code == 'ok') {
 				this.storage.setLogin(responseData.result);
-				this.navCtrl.setRoot('TabsPage');
+				this.navCtrl.setRoot('Ht1TabsPage');
 			} else {
 				this.util.toast('로그인 아이디와 비밀번호 입력값이 올바르지 않습니다.', 1000, 'middle');
 			}

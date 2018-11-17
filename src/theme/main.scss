@@ -143,9 +143,9 @@ $global-opacity: (
   // Get the alpha setting
   $alpha: if(type-of($opacity) == 'number', $opacity, map-get($global-opacity, $opacity));
   // Set the alpha of the color
-  @if $alpha {
+  /*@if $alpha {
     $color: rgba($color, $alpha);
-  }
+  }*/
   @return $color;
 }
 

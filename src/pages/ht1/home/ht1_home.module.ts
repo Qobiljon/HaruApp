@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { Ht1HomePage } from './home';
+import { Ht1HomePage } from './ht1_home';
 
 @NgModule({
   declarations: [

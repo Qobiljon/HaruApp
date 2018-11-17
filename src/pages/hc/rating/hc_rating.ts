@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { NavController, NavParams, ViewController, IonicPage } from 'ionic-angular';
 import { StorageProvider } from '../../../providers/hc/storage/storage';
 import { ApiProvider } from '../../../providers/hc/api/api';
 

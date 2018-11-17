@@ -63,12 +63,12 @@ export class Ht2SetupPage {
       this.events.publish('playBgm:changed', "true");
     }
 
-    this.navCtrl.setRoot('TabsPage', {pageName: 'home'});
+    this.navCtrl.setRoot('Ht2TabsPage', {pageName: 'home'});
   }
 
   openAlarm()
   {
-    let alarmModal = this.modalCtrl.create('AlarmPage');
+    let alarmModal = this.modalCtrl.create('Ht2AlarmPage');
 
     alarmModal.onDidDismiss(data => {
     if (data.mode == 'close') {

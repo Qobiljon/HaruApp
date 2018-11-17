@@ -35,7 +35,7 @@
           <ion-list no-margin home-list>
             <ion-item *ngFor="let item of items;let i = index" (click)="itemTapped($event, item)">
               <ion-avatar item-left>
-                <img src="assets/ht1/ht1/img/common/icon_pg{{item.num}}.png">
+                <img src="assets/ht1/img/common/icon_pg{{item.num}}.png">
               </ion-avatar>
               <div class="zone">{{item.ztitle}} 존</div>
               <div class="title"><span [innerHTML]="item['ptitle']"></span> <ion-badge *ngIf="item.targetdate == todayDate" class="harutoday-new">N</ion-badge></div>

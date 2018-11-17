@@ -14,7 +14,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = 'SplashPage';
+  rootPage: any = 'HcSplashPage';
 
   bgm_file: MediaObject;
   bgm_enable: boolean;
@@ -87,7 +87,7 @@ export class MyApp {
         this.bgm_enable = (this.storage.getPlayBgm() == "false") ? false : true;
 
         let sound: string;
-        sound = this.util.getMediaPath('assets/audio/bgm.mp3');
+        sound = this.util.getMediaPath('assets/hc/audio/bgm.mp3');
         this.bgm_file = this.media.create(sound);
         this.bgm_file.setVolume(0.1);
 
@@ -114,7 +114,7 @@ export class MyApp {
 
             let view = this.nav.getActive();
 
-            if (view.component.name == "LoginPage" || view.component.name == "TabsPage") {
+            if (view.component.name == "HcLoginPage" || view.component.name == "HcTabsPage") {
                 //Double check to exit app
                 if (new Date().getTime() - lastTimeBackPress < timePeriodToExit) {
 
@@ -137,11 +137,11 @@ export class MyApp {
 
       // used for an example of ngFor and navigation
       this.pages = [
-        { title: '홈', icon: 'home', component: 'TabsPage', pageName: 'home' },
-        { title: '하루카드', icon: 'albums', component: 'TabsPage', pageName: 'harucard' },
-        { title: '즐겨찾기', icon: 'heart', component: 'TabsPage', pageName: 'favorites' },
-        { title: '설정', icon: 'settings', component: 'SetupPage', pageName: 'setup' },
-        { title: '로그아웃', icon: 'power', component: 'LoginPage', pageName: 'logout' }
+        { title: '홈', icon: 'home', component: 'HcTabsPage', pageName: 'home' },
+        { title: '하루카드', icon: 'albums', component: 'HcTabsPage', pageName: 'harucard' },
+        { title: '즐겨찾기', icon: 'heart', component: 'HcTabsPage', pageName: 'favorites' },
+        { title: '설정', icon: 'settings', component: 'HcSetupPage', pageName: 'setup' },
+        { title: '로그아웃', icon: 'power', component: 'HcLoginPage', pageName: 'logout' }
       ];
   }
 

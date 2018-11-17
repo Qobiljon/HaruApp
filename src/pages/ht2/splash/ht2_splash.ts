@@ -15,11 +15,11 @@ export class Ht2SplashPage {
 
   	this.params.data = {
       "duration" : 3000,
-      "backgroundImage" : 'assets/img/background.jpg',
-      "logo" : 'assets/img/logo.png',
+      "backgroundImage" : 'assets/ht2/img/background.jpg',
+      "logo" : 'assets/ht2/img/logo.png',
       "title" : '정신건강 자기관리 프로그램',
       "content" : '[ 수면 ]',
-      "copyright" : 'assets/img/copyright.png'
+      "copyright" : 'assets/ht2/img/copyright.png'
   	}
 
   	this.params.events = {
@@ -28,9 +28,9 @@ export class Ht2SplashPage {
 
           if (storage.isLoggedIn())
           {
-              navCtrl.setRoot('TabsPage');
+              navCtrl.setRoot('Ht2TabsPage');
           } else {
-              navCtrl.setRoot('LoginPage');
+              navCtrl.setRoot('Ht2LoginPage');
           }
   		}
   	}

@@ -291,7 +291,7 @@ export class HcHomePage {
 		}
 		else
 		{
-			let ratingModal = this.modalCtrl.create('RatingPage');
+			let ratingModal = this.modalCtrl.create('HcRatingPage');
 
 			ratingModal.onDidDismiss(data => {
 				if (data.mode == 'close') {
@@ -463,7 +463,7 @@ export class HcHomePage {
 		}
 		else
 		{
-			let ratingModal = this.modalCtrl.create('RatingPage');
+			let ratingModal = this.modalCtrl.create('HcRatingPage');
 
 			ratingModal.onDidDismiss(data => {
 			if (data.mode == 'close') {
@@ -524,7 +524,7 @@ export class HcHomePage {
 
 	openAlarm()
 	{
-		let alarmModal = this.modalCtrl.create('AlarmPage');
+		let alarmModal = this.modalCtrl.create('HcAlarmPage');
 
 		alarmModal.onDidDismiss(data => {
 			if (data.mode == 'close') {

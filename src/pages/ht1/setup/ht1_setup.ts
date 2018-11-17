@@ -59,12 +59,12 @@ export class Ht1SetupPage {
 
   close()
   {
-    this.navCtrl.setRoot('TabsPage', {pageName: 'home'});
+    this.navCtrl.setRoot('Ht1TabsPage', {pageName: 'home'});
   }
 
   openAlarm()
   {
-    let alarmModal = this.modalCtrl.create('AlarmPage');
+    let alarmModal = this.modalCtrl.create('Ht1AlarmPage');
 
     alarmModal.onDidDismiss(data => {
     if (data.mode == 'close') {

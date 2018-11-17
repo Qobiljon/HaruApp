@@ -28,13 +28,13 @@ export class Ht3TabsPage {
 
     this.params.tabIndex = tabIndex;
     this.params.data = [
-      { page: 'HomePage', title: "홈", icon: "home"},
-      { page: 'ListPage', title: "오늘하루", icon: "list"},
-      { page: 'FavoritesPage', title: "즐겨찾기", icon: "heart"},
+      { page: 'Ht3HomePage', title: "홈", icon: "home"},
+      { page: 'Ht3ListPage', title: "오늘하루", icon: "list"},
+      { page: 'Ht3FavoritesPage', title: "즐겨찾기", icon: "heart"},
     ];
 
     this.events.subscribe('tabs:changed', (page) => {
-      if (page == 'HomePage') {
+      if (page == 'Ht3HomePage') {
         this.events.publish('playBgm:changed', 'true');
       } else {
         this.events.publish('playBgm:changed', 'false');

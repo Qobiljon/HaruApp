@@ -35,14 +35,14 @@
           <ion-list no-margin home-list>
             <ion-item *ngFor="let item of items;let i = index" (click)="itemTapped($event, item)">
               <ion-avatar item-left>
-                <img src="assets/ht2/ht2/img/common/icon_pg{{item.num}}.png">
+                <img src="assets/ht2/img/common/icon_pg{{item.num}}.png">
               </ion-avatar>
               <div class="zone">{{item.ztitle}} 존</div>
               <div class="title"><span [innerHTML]="item['ptitle']"></span> <ion-badge *ngIf="item.targetdate == todayDate" class="harutoday-new">N</ion-badge></div>
               <div class="item-data">
                 <span class="item-date">[{{item.num}}일차] {{item.targetdate}} ({{item.targetday}})</span>
                 <span class="bookmark">
-                  {{bookmark}}
+                  {{item.bookmark}}
                 <span class="item-bookmark">
                   <ion-icon *ngIf="item.bookmark" class="heart" name="heart" color="primary"></ion-icon>
                   <ion-icon *ngIf="!item.bookmark" class="heart" name="heart-outline" color="primary"></ion-icon>즐겨찾기</span>

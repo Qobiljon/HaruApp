@@ -13,4 +13,4 @@ import { HcTabsPage } from './hc_tabs';
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class TabsPageModule {}
+export class HcTabsPageModule {}

@@ -2,7 +2,7 @@
   <ion-navbar hideBackButton transparent>
     <ion-buttons (click)="close()" left>
       <button ion-button class="header-btn header-color" icon-start>
-         <img src="assets/ht2/ht2/img/common/home_btn.png" alt="">
+         <img src="assets/ht2/img/common/home_btn.png" alt="">
       </button>
     </ion-buttons>
     <ion-buttons left>
@@ -12,15 +12,15 @@
     </ion-buttons>
     <ion-buttons end>
       <button ion-button class="header-btn mute-color" *ngIf="pgConfig.volumeState == '0'" (click)="changeVolumeState()">
-        <img src="assets/ht2/ht2/img/common/mute_btn.png" alt="">
+        <img src="assets/ht2/img/common/mute_btn.png" alt="">
       </button>
       <button ion-button class="header-btn sound-color" *ngIf="pgConfig.volumeState == '1'" (click)="changeVolumeState()">
-        <img src="assets/ht2/ht2/img/common/sound_btn.png" alt="">
+        <img src="assets/ht2/img/common/sound_btn.png" alt="">
       </button>
     </ion-buttons>
     <ion-buttons end>
       <button ion-button class="header-btn header-color" *ngIf="item && item.ht_audio != ''" (click)="playSound(item.ht_base_audio, item.ht_pcode, item.ht_audio)">
-        <img src="assets/ht2/ht2/img/common/play_btn.png" alt="">
+        <img src="assets/ht2/img/common/play_btn.png" alt="">
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -538,23 +538,23 @@
             <table width="100%">
               <tr>
                 <td width="20%" text-center>
-                  <div text-center><img src="assets/ht2/ht2/img/p10/icon01.png" alt="" width="100%"></div>
+                  <div text-center><img src="assets/ht2/img/p10/icon01.png" alt="" width="100%"></div>
                   <div text-center><ion-checkbox [disabled]="dtPg.isUcInput49" [(ngModel)]="dtPg.resultUcInput49[1]" (click)="checkUcInput49(1)"></ion-checkbox></div>
                 </td>
                 <td width="20%" text-center>
-                  <div text-center><img src="assets/ht2/ht2/img/p10/icon02.png" alt="" width="100%"></div>
+                  <div text-center><img src="assets/ht2/img/p10/icon02.png" alt="" width="100%"></div>
                   <div text-center><ion-checkbox [disabled]="dtPg.isUcInput49" [(ngModel)]="dtPg.resultUcInput49[2]" (click)="checkUcInput49(2)"></ion-checkbox></div>
                 </td>
                 <td width="20%" text-center>
-                  <div text-center><img src="assets/ht2/ht2/img/p10/icon03.png" alt="" width="100%"></div>
+                  <div text-center><img src="assets/ht2/img/p10/icon03.png" alt="" width="100%"></div>
                   <div text-center><ion-checkbox [disabled]="dtPg.isUcInput49" [(ngModel)]="dtPg.resultUcInput49[3]" (click)="checkUcInput49(3)"></ion-checkbox></div>
                 </td>
                 <td width="20%" text-center>
-                  <div text-center><img src="assets/ht2/ht2/img/p10/icon04.png" alt="" width="100%"></div>
+                  <div text-center><img src="assets/ht2/img/p10/icon04.png" alt="" width="100%"></div>
                   <div text-center><ion-checkbox [disabled]="dtPg.isUcInput49" [(ngModel)]="dtPg.resultUcInput49[4]" (click)="checkUcInput49(4)"></ion-checkbox></div>
                 </td>
                 <td width="20%" text-center>
-                  <div text-center><img src="assets/ht2/ht2/img/p10/icon05.png" alt="" width="100%"></div>
+                  <div text-center><img src="assets/ht2/img/p10/icon05.png" alt="" width="100%"></div>
                   <div text-center><ion-checkbox [disabled]="dtPg.isUcInput49" [(ngModel)]="dtPg.resultUcInput49[5]" (click)="checkUcInput49(5)"></ion-checkbox></div>
                 </td>
               </tr>
@@ -579,16 +579,16 @@
             <table width="100%">
               <tr>
                 <td text-center *ngIf="dtPg.resultUcInput49[1]">
-                  <div text-center><img src="assets/ht2/ht2/img/p10/icon01.png" alt="" width="100"></div>
+                  <div text-center><img src="assets/ht2/img/p10/icon01.png" alt="" width="100"></div>
                 </td>
                 <td text-center *ngIf="dtPg.resultUcInput49[2]">
-                  <div text-center><img src="assets/ht2/ht2/img/p10/icon02.png" alt="" width="100"></div>
+                  <div text-center><img src="assets/ht2/img/p10/icon02.png" alt="" width="100"></div>
                 </td>
                 <td text-center *ngIf="dtPg.resultUcInput49[3]">
-                  <div text-center><img src="assets/ht2/ht2/img/p10/icon03.png" alt="" width="100"></div>
+                  <div text-center><img src="assets/ht2/img/p10/icon03.png" alt="" width="100"></div>
                 </td>
                 <td text-center *ngIf="dtPg.resultUcInput49[4]">
-                  <div text-center><img src="assets/ht2/ht2/img/p10/icon04.png" alt="" width="100"></div>
+                  <div text-center><img src="assets/ht2/img/p10/icon04.png" alt="" width="100"></div>
                 </td>
               </tr>
             </table>
@@ -695,13 +695,13 @@
 <div no-border class="footer-container">
     <ion-buttons left class="footer-left">
       <button ion-button class="footer-btn footer-color" (click)="goPrev()">
-         <img src="assets/ht2/ht2/img/common/prev_btn.png" alt="">
+         <img src="assets/ht2/img/common/prev_btn.png" alt="">
       </button>
     </ion-buttons>
 
     <ion-buttons end class="footer-right">
       <button ion-button class="footer-btn footer-color" (click)="goNext()" >
-        <img src="assets/ht2/ht2/img/common/next_btn.png" alt="">
+        <img src="assets/ht2/img/common/next_btn.png" alt="">
       </button>
     </ion-buttons>
 </div>

@@ -7,7 +7,7 @@ import { Ht1AlarmPage } from './ht1_alarm';
     Ht1AlarmPage,
   ],
   imports: [
-    IonicPageModule.forChild(AlarmPage)
+    IonicPageModule.forChild(Ht1AlarmPage)
   ],
 })
 export class Ht1AlarmPageModule {}

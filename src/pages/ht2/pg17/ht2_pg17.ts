@@ -49,7 +49,7 @@ export class Ht2Pg17Page {
 		public api: ApiProvider,
 		public media: Media,
 		public youtube: YoutubeVideoPlayer
-	){
+	){}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad Pg17Page');

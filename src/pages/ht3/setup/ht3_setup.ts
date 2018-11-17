@@ -62,7 +62,7 @@ export class Ht3SetupPage {
 
   openAlarm()
   {
-    let alarmModal = this.modalCtrl.create('AlarmPage');
+    let alarmModal = this.modalCtrl.create('Ht3AlarmPage');
 
     alarmModal.onDidDismiss(data => {
     if (data.mode == 'close') {

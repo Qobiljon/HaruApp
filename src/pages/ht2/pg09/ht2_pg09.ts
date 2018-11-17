@@ -47,7 +47,7 @@ export class Ht2Pg09Page {
 		public api: ApiProvider,
 		public media: Media,
 		public youtube: YoutubeVideoPlayer
-	){
+	){}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad Pg9Page');

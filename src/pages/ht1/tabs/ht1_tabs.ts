@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, Events } from 'ionic-angular';
+import { NavController, NavParams, Events, IonicPage } from 'ionic-angular';
 import { StorageProvider } from '../../../providers/ht1/storage/storage';
 
 @IonicPage()
@@ -28,13 +28,13 @@ export class Ht1TabsPage {
 
     this.params.tabIndex = tabIndex;
     this.params.data = [
-      { page: 'HomePage', title: "홈", icon: "home"},
-      { page: 'ListPage', title: "오늘하루", icon: "list"},
-      { page: 'FavoritesPage', title: "즐겨찾기", icon: "heart"},
+      { page: 'Ht1HomePage', title: "홈", icon: "home"},
+      { page: 'Ht1ListPage', title: "오늘하루", icon: "list"},
+      { page: 'Ht1FavoritesPage', title: "즐겨찾기", icon: "heart"},
     ];
     
     this.events.subscribe('tabs:changed', (page) => {
-      if (page == 'HomePage') {
+      if (page == 'Ht1HomePage') {
         this.events.publish('playBgm:changed', 'true');
       } else {
         this.events.publish('playBgm:changed', 'false');

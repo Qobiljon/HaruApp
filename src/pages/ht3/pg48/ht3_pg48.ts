@@ -48,7 +48,7 @@ export class Ht3Pg48Page {
 		public api: ApiProvider,
 		public media: Media,
 		public alertCtrl: AlertController
-	){
+	){}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad Pg48Page');
@@ -823,4 +823,4 @@ export class Ht3Pg48Page {
 	openUrl(url) {
 		this.util.openUrl(url);
 	}
-}}
+}

@@ -7,7 +7,7 @@ import { Ht1FavoritesPage } from './ht1_favorites';
     Ht1FavoritesPage,
   ],
   imports: [
-    IonicPageModule.forChild(FavoritesPage),
+    IonicPageModule.forChild(Ht1FavoritesPage),
   ],
 })
 export class Ht1FavoritesPageModule {}

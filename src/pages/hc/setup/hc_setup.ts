@@ -56,13 +56,13 @@ export class HcSetupPage {
   {
     this.events.publish('playBgm:changed', 'true');
 
-    this.navCtrl.setRoot('TabsPage', {pageName: 'home'});
+    this.navCtrl.setRoot('HcTabsPage', {pageName: 'home'});
     this.navCtrl.popToRoot();
   }
 
   openAlarm()
   {
-    let alarmModal = this.modalCtrl.create('AlarmPage');
+    let alarmModal = this.modalCtrl.create('HcAlarmPage');
 
     alarmModal.onDidDismiss(data => {
     if (data.mode == 'close') {
