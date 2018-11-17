@@ -1,0 +1,25 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <div class="header-background-image">
+      <ion-thumbnail>
+        <img src="assets/hc/img/logo.png">
+      </ion-thumbnail>
+      <h4 item-name text-center color="secondary">정신건강 자기관리 프로그램</h4>
+      <h4 item-name text-center color="secondary">{{userName}} 님</h4>
+      <h5 item-time text-center color="secondary" >등록일시 : {{userCreatedDateTime}}</h5>
+    </div>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button menuClose ion-item color="primary" *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon *ngIf="p.icon" name="{{p.icon}}" item-start></ion-icon>
+        {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

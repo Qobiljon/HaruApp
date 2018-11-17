@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle left>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>설정</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="close()">
+        <ion-icon name="close-circle"></ion-icon> 닫기
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding>
+  <ion-list no-margin>
+    <button ion-item primary color="light" (click)="openAlarm()">
+      <ion-icon name="alarm" color="primary" item-left></ion-icon>
+      오늘하루 알림시간 설정
+    </button>
+    <div ion-item primary color="secondary">
+      <ion-icon name="paper" color="primary" item-left></ion-icon>
+      프로그램명 : 오늘하루 {{appPartName}}
+    </div>
+
+    <div ion-item primary color="secondary">
+      <ion-icon *ngIf="bgm_enable == true" name="notifications" color="primary" item-left></ion-icon>
+      <ion-icon *ngIf="bgm_enable == false" name="notifications-off" color="primary" item-left></ion-icon>
+      <ion-buttons (click)="changeBgm()">
+        <button *ngIf="bgm_enable == true" ion-button primary>
+          <span>배경음악(BGM) 켜짐</span>
+        </button>
+
+        <button *ngIf="bgm_enable == false" ion-button primary color="light">
+          <span>배경음악(BGM) 꺼짐</span>
+        </button>
+      </ion-buttons>
+    </div>
+
+    <div ion-item primary color="secondary">
+      <ion-icon name="alert" color="primary" item-left></ion-icon>
+      프로그램 버전 : {{util.getAppVersion()}}
+    </div>
+    <div ion-item primary color="secondary">
+      <ion-icon name="create" color="primary" item-left></ion-icon>
+      제작 : 연세대학교 행동심리학연구실
+    </div>
+  </ion-list>
+</ion-content>

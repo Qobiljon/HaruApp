@@ -1,0 +1,555 @@
+<ion-header no-border class="header-container">
+  <ion-navbar hideBackButton transparent>
+    <ion-buttons (click)="close()" left>
+      <button ion-button class="header-btn header-color" icon-start>
+         <img src="assets/ht1/ht1/img/common/home_btn.png" alt="">
+      </button>
+    </ion-buttons>
+    <ion-buttons left>
+      <button ion-button round class="header-title header-color">
+        {{itemTarget.ztitle}}&nbsp;&gt;&nbsp;<span [innerHTML]="itemTarget['ptitle']"></span>&nbsp;<span class="header-num">({{itemTarget.pnum}}회기&nbsp;{{pgConfig.sceneNumber}}/{{pgConfig.sceneMaxNumber}})</span>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button class="header-btn mute-color" *ngIf="pgConfig.volumeState == '0'" (click)="changeVolumeState()">
+        <img src="assets/ht1/ht1/img/common/mute_btn.png" alt="">
+      </button>
+      <button ion-button class="header-btn sound-color" *ngIf="pgConfig.volumeState == '1'" (click)="changeVolumeState()">
+        <img src="assets/ht1/ht1/img/common/sound_btn.png" alt="">
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button class="header-btn header-color" *ngIf="item && item.ht_audio != ''" (click)="playSound(item.ht_base_audio, item.ht_pcode, item.ht_audio)">
+        <img src="assets/ht1/ht1/img/common/play_btn.png" alt="">
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+  <div class="title" *ngIf="item && item['ht_title'] != ''" [innerHTML]="item['ht_title']"></div>
+</ion-header>
+
+<ion-content no-padding fullscreen>
+
+  <div class="hcct001-1" *ngIf="item && item.ht_tpcode == 'hcct001-1'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="center-image">
+            <img src="{{item['ht_base_image']}}/ht1/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <blockquote class="center-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct001-2" *ngIf="item && item.ht_tpcode == 'hcct001-2'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="center-image">
+            <img src="{{item['ht_base_image']}}/ht1/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <blockquote class="center-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct001-3" *ngIf="item && item.ht_tpcode == 'hcct001-3'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-image" *ngIf="item['ht_image1'] != ''" text-center><img src="{{item['ht_base_image']}}/ht1/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt=""></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct001-4" *ngIf="item && item.ht_tpcode == 'hcct001-4'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-image" *ngIf="item['ht_image1'] != ''" text-center><img src="{{item['ht_base_image']}}/ht1/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt=""></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct002" *ngIf="item && item.ht_tpcode == 'hcct002'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-image" *ngIf="item['ht_image1'] != ''" text-center><img src="{{item['ht_base_image']}}/ht1/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt=""></div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <div class="top-text" *ngIf="item['ht_text2'] != ''" [innerHTML]="item['ht_text2']"></div>
+          <div class="bottom-image" *ngIf="item['ht_image2'] != ''" text-center><img src="{{item['ht_base_image']}}/ht1/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image2']}}?ver={{item['ht_ver']}}" alt=""></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct002-1" *ngIf="item && item.ht_tpcode == 'hcct002-1'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-image" *ngIf="item['ht_image1'] != ''" text-center><img src="{{item['ht_base_image']}}/ht1/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt=""></div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <div class="top-text" *ngIf="item['ht_text2'] != ''" [innerHTML]="item['ht_text2']"></div>
+          <div class="bottom-image" *ngIf="item['ht_image2'] != ''" text-center><img src="{{item['ht_base_image']}}/ht1/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image2']}}?ver={{item['ht_ver']}}" alt=""></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct003" *ngIf="item && item.ht_tpcode == 'hcct003'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="center-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct006" *ngIf="item && item.ht_tpcode == 'hcct005'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="center-image">
+            <img src="{{item['ht_base_image']}}/ht1/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <blockquote class="center-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct006" *ngIf="item && item.ht_tpcode == 'hcct006'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="center-image">
+            <img src="{{item['ht_base_image']}}/ht1/{{item['ht_mcode']}}/common/{{item['ht_tpimage']}}?ver={{item['ht_ver']}}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <blockquote class="center-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct007" *ngIf="item && item.ht_tpcode == 'hcct007'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="center-image">
+            <img src="{{item['ht_base_image']}}/ht1/{{item['ht_mcode']}}/common/{{item['ht_tpimage']}}?ver={{item['ht_ver']}}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <blockquote class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></blockquote>
+          <div class="bottom-image" *ngIf="item['ht_image1'] != ''" text-center><img src="{{item['ht_base_image']}}/ht1/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt=""></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct008" *ngIf="item && item.ht_tpcode == 'hcct008'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="center-image">
+            <img src="{{item['ht_base_image']}}/ht1/{{item['ht_mcode']}}/common/{{item['ht_tpimage']}}?ver={{item['ht_ver']}}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <blockquote class="center-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct009" *ngIf="item && item.ht_tpcode == 'hcct009'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-image" *ngIf="item['ht_tpimage'] != ''" text-center><img src="{{item['ht_base_image']}}/ht1/{{item['ht_mcode']}}/common/{{item['ht_tpimage']}}?ver={{item['ht_ver']}}" alt=""></div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <div class="top-text" *ngIf="item['ht_text2'] != ''" [innerHTML]="item['ht_text2']"></div>
+          <div class="bottom-image" *ngIf="item['ht_image1'] != ''" text-center><img src="{{item['ht_base_image']}}/ht1/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt=""></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct010" *ngIf="item && item.ht_tpcode == 'hcct010'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-image" *ngIf="item['ht_image1'] != ''" text-center><img src="{{item['ht_base_image']}}/ht1/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt=""></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct011" *ngIf="item && item.ht_tpcode == 'hcct011' && item.ht_userdata == '0'">
+    <div class="container">  
+      <div class="center" text-center>
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-title">
+            <span class="first-text">매우 나쁨</span>
+            <span class="center-text">보통</span>
+            <span class="last-text">매우 좋음</span>
+          </div>
+          <div class="bottom-box">
+            <ul radio-group class="feel-selector" [(ngModel)]="pgConfig.countTodayFeelRating">
+              <li><ion-radio [disabled]="pgConfig.isTodayFeelRating" class="feel0" value="0"></ion-radio></li>
+              <li><ion-radio [disabled]="pgConfig.isTodayFeelRating" class="feel1" value="1"></ion-radio></li>
+              <li><ion-radio [disabled]="pgConfig.isTodayFeelRating" class="feel2" value="2"></ion-radio></li>
+              <li><ion-radio [disabled]="pgConfig.isTodayFeelRating" class="feel3" value="3"></ion-radio></li>
+              <li><ion-radio [disabled]="pgConfig.isTodayFeelRating" class="feel4" value="4"></ion-radio></li>
+              <li><ion-radio [disabled]="pgConfig.isTodayFeelRating" class="feel5" value="5"></ion-radio></li>
+              <li><ion-radio [disabled]="pgConfig.isTodayFeelRating" class="feel6" value="6"></ion-radio></li>
+              <li><ion-radio [disabled]="pgConfig.isTodayFeelRating" class="feel7" value="7"></ion-radio></li>
+              <li><ion-radio [disabled]="pgConfig.isTodayFeelRating" class="feel8" value="8"></ion-radio></li>
+              <li><ion-radio [disabled]="pgConfig.isTodayFeelRating" class="feel9" value="9"></ion-radio></li>
+              <li><ion-radio [disabled]="pgConfig.isTodayFeelRating" class="feel10" value="10"></ion-radio></li>
+            </ul>
+          </div>
+          <div class="bottom-btn" text-center><button ion-button [disabled]="pgConfig.isTodayFeelRating" (click)="sendTodayFeelRating();">제출하기</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct014" *ngIf="item && item.ht_tpcode == 'hcst008'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%" radio-group [(ngModel)]="dtPg.resultUcInput8">
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><ion-radio [disabled]="dtPg.isUcInput8" value="1"></ion-radio> 나는 모든 일에 다 무능력해.</ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><ion-radio [disabled]="dtPg.isUcInput8" value="2"></ion-radio> 이번에 승진을 못했으니 내 인생은 실패했어.</ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><ion-radio [disabled]="dtPg.isUcInput8" value="3"></ion-radio> 부장님이 나를 안 좋아해서 승진을 안 시켜준 거야.</ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><ion-radio [disabled]="dtPg.isUcInput8" value="4"></ion-radio> 부장님은 나한테만 가혹해.</ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><ion-radio [disabled]="dtPg.isUcInput8" value="5"></ion-radio> 이번엔 안됐지만 다음에 기회가 또 있겠지.</ion-badge></td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+            <div text-center><button ion-button [disabled]="dtPg.isUcInput8" (click)="sendUcInput8()">제출하기</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct014" *ngIf="item && item.ht_tpcode == 'hcst013'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%" radio-group [(ngModel)]="dtPg.resultUcInput13">
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><ion-radio [disabled]="dtPg.isUcInput13" value="1"></ion-radio> 난 항상 인간관계를 망쳐.</ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><ion-radio [disabled]="dtPg.isUcInput13" value="2"></ion-radio> 지수와 내 관계는 이제 끝났어</ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><ion-radio [disabled]="dtPg.isUcInput13" value="3"></ion-radio> 연락을 안 받네. 나를 싫어하는 게 분명해</ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><ion-radio [disabled]="dtPg.isUcInput13" value="4"></ion-radio> 지수는 늘 나한테만 이렇게 함부로 대해</ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><ion-radio [disabled]="dtPg.isUcInput13" value="5"></ion-radio> 혹시 지수에게 무슨 일이 생긴 건 아닐까?</ion-badge></td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+            <div text-center><button ion-button [disabled]="dtPg.isUcInput13" (click)="sendUcInput13()">제출하기</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct014" *ngIf="item && item.ht_tpcode == 'hcst016'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%" radio-group [(ngModel)]="dtPg.resultUcInput16">
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><ion-radio [disabled]="dtPg.isUcInput16" value="1"></ion-radio> 아무도 나를 좋아하지 않아.</ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><ion-radio [disabled]="dtPg.isUcInput16" value="2"></ion-radio> 이제 회사 내 인간관계는 끝이야.</ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><ion-radio [disabled]="dtPg.isUcInput16" value="3"></ion-radio> 동료들이 나를 싫어해.</ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><ion-radio [disabled]="dtPg.isUcInput16" value="4"></ion-radio> 항상 나만 빼놓고 얘기하더라.</ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><ion-radio [disabled]="dtPg.isUcInput16" value="5"></ion-radio> 내 자리가 멀어서 굳이 안 물어본 걸거야.</ion-badge></td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+            <div text-center><button ion-button [disabled]="dtPg.isUcInput16" (click)="sendUcInput16()">제출하기</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct014" *ngIf="item && item.ht_tpcode == 'hcst020'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%" radio-group [(ngModel)]="dtPg.resultUcInput20">
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><ion-radio [disabled]="dtPg.isUcInput20" value="1"></ion-radio> 나는 친구가 없어.</ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><ion-radio [disabled]="dtPg.isUcInput20" value="2"></ion-radio> 엄마들 사이에서 나는 왕따야.</ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><ion-radio [disabled]="dtPg.isUcInput20" value="3"></ion-radio> 엄마들이 나를 불편해하고 마음에 안 들어 해.</ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><ion-radio [disabled]="dtPg.isUcInput20" value="4"></ion-radio> 내 주변 사람들은 항상 나만 빼놓고 놀아.</ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><ion-radio [disabled]="dtPg.isUcInput20" value="5"></ion-radio> 어제 어쩌다 갑자기 모이게 되어서 연락을 못했나 봐.</ion-badge></td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+            <div text-center><button ion-button [disabled]="dtPg.isUcInput20" (click)="sendUcInput20()">제출하기</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct006" *ngIf="item && item.ht_tpcode == 'hcst024'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="center-image">
+            <img src="{{item['ht_base_image']}}/ht1/{{item['ht_mcode']}}/common/{{item['ht_tpimage']}}?ver={{item['ht_ver']}}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <blockquote class="center-text">
+            <span *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></span><span *ngIf="dtPg.resultUcData24[1]" [innerHTML]="dtPg.textUcData[1]"></span><span *ngIf="dtPg.resultUcData24[2]" [innerHTML]="dtPg.textUcData[2]"></span><span *ngIf="dtPg.resultUcData24[3]" [innerHTML]="dtPg.textUcData[3]"></span><span *ngIf="dtPg.resultUcData24[4]" [innerHTML]="dtPg.textUcData[4]"></span><span *ngIf="dtPg.resultUcData24[5]" [innerHTML]="dtPg.textUcData[5]"></span><span *ngIf="item['ht_text2'] != ''" [innerHTML]="item['ht_text2']"></span>
+          </blockquote> 
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct014" *ngIf="item && item.ht_tpcode == 'hcst025'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%">
+              <tr>
+                <td>
+                    <div *ngIf="dtPg.resultUcData24[1] && !dtPg.resultUcData24[5]"><b>지나친 일반화</b>라고 합니다. 이는 부정적인 결과를 확대해서 해석하는 것을 말합니다.</div>
+                    <div *ngIf="dtPg.resultUcData24[2] && !dtPg.resultUcData24[5]"><b>파국화</b>라고 합니다. 이는 사건의 결말을 극단적이고 부정적으로 예상하는 생각입니다.</div>
+                    <div *ngIf="dtPg.resultUcData24[3] && !dtPg.resultUcData24[5]"><b>의미축소/의미확대</b>라고 합니다. 이는 긍정적인 면을 작게 보고 부정적인 면을 크게 보는 생각입니다.</div>
+                    <div *ngIf="dtPg.resultUcData24[4] && !dtPg.resultUcData24[5]"><b>개인화</b>는 자신과 무관한 사건을 자신과 관련된 것으로 해석하는 것입니다.</div>
+                    <div *ngIf="dtPg.resultUcData24[5] && (dtPg.resultUcData24[1] || dtPg.resultUcData24[2] || dtPg.resultUcData24[3] || dtPg.resultUcData24[4])">
+                      <b>자동적 긍정적 사고</b>와 <span *ngIf="dtPg.resultUcData24[1]"><b>지나친 일반화</b></span> <span *ngIf="dtPg.resultUcData24[2]"><b>파국화</b></span> <span  *ngIf="dtPg.resultUcData24[3]"><b>의미축소/의미확대</b></span> <span *ngIf="dtPg.resultUcData24[4]"><b>개인화</b></span>를 하는 것으로 나타났습니다. 지금의 생각을 바꿀 필요가 없습니다.
+                    </div>
+                    <div *ngIf="dtPg.resultUcData24[5] && !dtPg.resultUcData24[1] && !dtPg.resultUcData24[2] && !dtPg.resultUcData24[3] && !dtPg.resultUcData24[4]">
+                      <b>자동적 긍정적 사고</b>를 하는 것으로 나타났습니다. 지금의 생각을 바꿀 필요가 없습니다.
+                    </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct006" *ngIf="item && (item.ht_tpcode == 'hcst027' || item.ht_tpcode == 'hcst028' || item.ht_tpcode == 'hcst029')">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="center-image">
+            <img src="{{item['ht_base_image']}}/ht1/{{item['ht_mcode']}}/common/{{item['ht_tpimage']}}?ver={{item['ht_ver']}}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <blockquote class="center-text">
+            <span class="strong" [innerHTML]="pgConfig.userInfo['name']"></span><span *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></span>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct013" *ngIf="item && item.ht_tpcode == 'hcst032'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%" *ngIf="!dtPg.isUcQuiz1">
+              <tr>
+                <td>
+                  <div radio-group [(ngModel)]="dtPg.resultUcQuiz1">
+                    <div><ion-radio value="1"></ion-radio> 파국화</div>
+                    <div><ion-radio value="2"></ion-radio> 개인화</div>
+                    <div><ion-radio value="3"></ion-radio> 일반화</div>
+                    <div><ion-radio value="4"></ion-radio> 합리적 생각</div>
+                    <div><ion-radio value="5"></ion-radio> 의미축소 및 확대</div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table width="100%" *ngIf="dtPg.isUcQuiz1">
+              <tr>
+                <td>
+                  <div radio-group [(ngModel)]="dtPg.passUcQuiz1">
+                    <div><ion-radio disabled value="1"></ion-radio> 파국화</div>
+                    <div><ion-radio disabled value="2"></ion-radio> 개인화</div>
+                    <div><ion-radio disabled value="3"></ion-radio> 일반화</div>
+                    <div><ion-radio disabled value="4"></ion-radio> 합리적 생각</div>
+                    <div><ion-radio disabled value="4"></ion-radio> 의미축소 및 확대</div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+            <div text-center><button ion-button [disabled]="dtPg.isUcQuiz1" (click)="sendUcQuiz1()">제출하기</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct013" *ngIf="item && item.ht_tpcode == 'hcst033'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%" *ngIf="!dtPg.isUcQuiz2">
+              <tr>
+                <td>
+                  <div radio-group [(ngModel)]="dtPg.resultUcQuiz2">
+                    <div><ion-radio value="1"></ion-radio> 지나친 일반화는 부정적인 결과를 확대해석하는 것을 말한다.</div>
+                    <div><ion-radio value="2"></ion-radio> 파국화는 결말을 극단적이고 부정적으로 예상하는 것이다.</div>
+                    <div><ion-radio value="3"></ion-radio> 의미축소 및 확대는 긍정적인 면을 작게 보고 부정적인 면을 크게 보는 것이다.</div>
+                    <div><ion-radio value="4"></ion-radio> 개인화는 사건을 다른 사람과 관련지어 해석하는 것이다.</div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table width="100%" *ngIf="dtPg.isUcQuiz2">
+              <tr>
+                <td>
+                  <div radio-group [(ngModel)]="dtPg.passUcQuiz2">
+                    <div><ion-radio disabled value="1"></ion-radio> 지나친 일반화는 부정적인 결과를 확대해석하는 것을 말한다.</div>
+                    <div><ion-radio disabled value="2"></ion-radio> 파국화는 결말을 극단적이고 부정적으로 예상하는 것이다.</div>
+                    <div><ion-radio disabled value="3"></ion-radio> 의미축소 및 확대는 긍정적인 면을 작게 보고 부정적인 면을 크게 보는 것이다.</div>
+                    <div><ion-radio disabled value="4"></ion-radio> 개인화는 사건을 다른 사람과 관련지어 해석하는 것이다.</div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+            <div text-center><button ion-button [disabled]="dtPg.isUcQuiz2" (click)="sendUcQuiz2()">제출하기</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct017" *ngIf="item && item.ht_tpcode == 'hcct017'">
+    <div class="container">
+      <canvas #lineCanvas></canvas>
+    </div>
+  </div>
+
+</ion-content>
+
+<div no-border class="footer-container">
+    <ion-buttons left class="footer-left">
+      <button ion-button class="footer-btn footer-color" (click)="goPrev()">
+         <img src="assets/ht1/ht1/img/common/prev_btn.png" alt="">
+      </button>
+    </ion-buttons>
+
+    <ion-buttons end class="footer-right">
+      <button ion-button class="footer-btn footer-color" (click)="goNext()" >
+        <img src="assets/ht1/ht1/img/common/next_btn.png" alt="">
+      </button>
+    </ion-buttons>
+</div>
+

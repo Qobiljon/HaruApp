@@ -1,0 +1,65 @@
+page-favorites {
+
+  [harucard-bookmark-list] {
+    width: 90%;
+    margin-top: 10px;
+    position: relative;
+    z-index: 999;
+    .title {
+      color: theme-colors('textColors', 'primary');
+    }
+    .category {
+      color: #999999;
+    }
+    .harucard-new {
+      font-size: 0.8rem;
+      background-color: #fe6a84;
+    }
+  }
+  //add class
+  .item-block {
+    width: 100%;
+    margin: 10px 0px;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #d2d2d2;
+    .item-inner {
+      border-bottom: 0 !important;
+      padding-right: 9px !important;
+      .label {
+        .title {
+          color: theme-colors('textColors', 'primary');
+          font-weight: 500;
+          margin: 0px;
+          width: 85%;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          display: inline-block;
+          overflow: hidden;
+        }
+        .category {
+          font-size: 1.2rem;
+          color: #333;
+          .item_data {
+            color: #999;
+          }
+        }
+        .date_num {
+          position: absolute;
+          color: #999999;
+          height: 50%;
+          top: 0;
+          right: 19px;
+          bottom: 0;
+          margin: auto;
+          .heart.item-icon {
+            display: block;
+          }
+          .date_num_txt {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+}

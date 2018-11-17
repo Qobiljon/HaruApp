@@ -1,0 +1,93 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+// Spiner View
+
+// 색상
+.pink_1 {
+  background: #f992a8 !important;
+}
+
+
+.spinner-view {
+  img {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+  }
+}
+// Settings Style Main Meni
+.header-background-image {
+  background-image: url('../assets/img/header_bg.jpg');
+  opacity : 0.9;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  ion-thumbnail {
+    padding-top: 20px;
+    img {
+      margin: 0 auto;
+      position: relative;
+      z-index: 9;
+      max-width: 110px;
+
+    }
+  }
+
+  [item-title] {
+    position: relative;
+    z-index: 9;
+  }
+
+  [item-name] {
+    position: relative;
+    color: #ffffff;
+    z-index: 9;
+  }
+
+  [item-time] {
+    position: relative;
+    font-size: 12px;
+    color: #ffffff;
+    z-index: 9;
+  }
+}
+// Settings Main  Menu
+
+[main-menu] {
+  ion-icon {
+    color: theme-colors('textColors', 'primary');
+    float: left;
+    padding-left: 30px;
+    margin-right: 10px;
+  }
+}
+// Settings Submenu
+
+[submenu] {
+  ion-label {
+    padding-left: 30px !important;
+  }
+}
+
+[header-button] {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  padding: 0 10px;
+}
+

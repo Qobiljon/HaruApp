@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>하루카드 출석점수 전체기록</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="closeHistoryModal()">
+        <ion-icon name="close-circle"></ion-icon> 닫기
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding>
+  <ion-grid *ngIf="point_items" no-padding harucard-history-list>
+    <ion-row>
+      <ion-col col-12>
+        <ion-list no-margin>
+          <ion-item class="help-box-inner">
+            <h5 class="help-title" text-center><span class="text-color">하루카드 출석점수 반영방법?</span></h5>
+            <h6 class="help-title" text-center class="gray-color">
+              오늘 발행되는 하루카드 내용을 확인시 20점,<br>
+              1주 ~ 9주차 하루카드를 5일연속 출석시<br>
+              추가점수 50점이 보너스로 반영됩니다. 
+            </h6>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-2 padding class="history-box-inner" *ngFor="let point_item of point_items;let i = index;">
+          <h6 class="checkbox">
+            <ion-icon *ngIf="point_item.point > 0" name="ios-checkbox" color="primary"></ion-icon>
+            <ion-icon *ngIf="point_item.point == 0" name="ios-checkbox-outline" color="primary"></ion-icon>
+          </h6>
+          <div class="day-title">{{point_item.num}}회기</div>
+          <div class="text-color" >{{point_item.point}}점</div>
+          <div *ngIf="point_item.point > 20" class="bonus-title"><ion-icon name="ios-star" color="primary">연속출석</ion-icon></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,109 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-center>오늘하루 [수면]</ion-title>
+    <ion-buttons (click)="goRefresh()" end>
+      <button ion-button primary color="light">
+        <ion-icon name="refresh"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header><ion-content no-padding>
+    <ion-grid padding class="default-background">
+      <ion-row>
+        <ion-col col-12>
+          <ion-list no-margin>
+            <ion-item>
+      				<h5 class="harutoday-title" text-center><span class="text-color">오늘하루란?</span></h5>
+      				<h6 class="harutoday-title" text-center class="gray-color">
+              <br>
+              <b>오늘하루</b>는 암환자가 호소하는<br>
+              수면 문제에 대한 인지행동치료 (Cognitive<br>
+              Behavioral Therapy) 프로그램입니다.<br>
+              <br>
+              여러분은 총 66일동안 매일 약 10분의<br>
+              <b>오늘하루</b> 프로그램에 참여하게 됩니다.</h6>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <div class="dash-box-title">오늘하루 진행일</div>
+          <ion-list no-margin home-list>
+            <ion-item *ngFor="let item of items;let i = index" (click)="itemTapped($event, item)">
+              <ion-avatar item-left>
+                <img src="assets/ht2/ht2/img/common/icon_pg{{item.num}}.png">
+              </ion-avatar>
+              <div class="zone">{{item.ztitle}} 존</div>
+              <div class="title"><span [innerHTML]="item['ptitle']"></span> <ion-badge *ngIf="item.targetdate == todayDate" class="harutoday-new">N</ion-badge></div>
+              <div class="item-data">
+                <span class="item-date">[{{item.num}}일차] {{item.targetdate}} ({{item.targetday}})</span>
+                <span class="bookmark">
+                  {{bookmark}}
+                <span class="item-bookmark">
+                  <ion-icon *ngIf="item.bookmark" class="heart" name="heart" color="primary"></ion-icon>
+                  <ion-icon *ngIf="!item.bookmark" class="heart" name="heart-outline" color="primary"></ion-icon>즐겨찾기</span>
+                </span>
+              </div>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6>
+            <div class="dash-box-title"><span class="text-color">{{userName}}</span><span>님의 출석점수</span></div>
+            <div class="dash-box-inner">
+              <div class="dash-row-title">{{totalPoint}}<span>점</span></div>
+              <div>
+                <div class="go-button" (click)="openHistory()">
+                  출석기록 바로가기
+                  <ion-icon name="arrow-round-forward" color="primary"></ion-icon>
+                </div>
+              </div>
+            </div>
+        </ion-col>
+        <ion-col col-6>
+            <div class="dash-box-title">알림시간 설정</div>
+            <div *ngIf="alarmUse" class="dash-box-inner">
+              <div class="dash-row-title">{{alarmMode}} {{alarmHour}}<span>시</span> {{alarmMin}}<span>분</span></div>
+              <div>
+                <div class="go-button-alarm" (click)="openAlarm()">
+                  <span>알림시간 설정하기</span>
+                  <ion-icon name="arrow-round-forward" color="primary"></ion-icon>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="!alarmUse" class="dash-box-inner-alarm">
+              <div class="dash-row-alarm-title">알림시간 미설정</div>
+              <div>
+                <div class="go-button-alarm" (click)="openAlarm()">
+                  <span class="text-white">알림 시간 설정하기</span>
+                  <ion-icon name="arrow-round-forward" color="secondary"></ion-icon>
+                </div>
+              </div>
+            </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <div class="dash-box-title">오늘하루 수면효율 그래프</div>
+          <ion-list no-margin>
+            <ion-item>
+
+              <h4 class="text-color">최근 수면효율 그래프</h4>
+
+              <canvas #lineCanvas></canvas>
+
+              <div class="go-button" (click)="openRatingGraph()">
+                오늘하루 수면효율 회기별 그래프 바로가기
+                <ion-icon name="arrow-round-forward" color="primary"></ion-icon>
+              </div>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content>

@@ -1,0 +1,28 @@
+page-rating-history {
+  .rating-img {
+    margin: 0px auto;
+    height: 40px;
+    width: 40px;
+  }
+  .calendar {
+    color: rgba(106, 104, 193, 1.0);
+    font-weight: 700;  
+  }
+  .text-color {
+    color: rgba(106, 106, 106, 1.0);
+    font-weight: 700;
+  }
+
+  .dash-box-inner {
+    background-color: rgba(255, 255, 255, 1.0);
+    border-radius: 5px;
+    height: 110px;
+    padding: 15px;
+    margin: 5px 0px;
+    box-shadow: 0 0 3px #d2d2d2;
+
+    .days {
+      font-size : 1.4rem;
+    }
+  }
+}

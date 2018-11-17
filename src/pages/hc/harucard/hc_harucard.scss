@@ -1,0 +1,215 @@
+page-harucard {
+
+  .favorites {
+    font-size: 16px;
+  }
+
+  [harucard-view] {
+    [header-background-size] {
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      height: 130px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: -8px;
+      margin-bottom: -8px;
+      
+      .title {
+        max-width: 100%;
+        max-height: 100%;
+        z-index: 2;
+        text-align: center;
+        [cardview-category] {
+          line-height: 30px;
+          font-weight: 100;
+          color: #fff !important;
+          margin-top: 4px;
+          margin-bottom: 8px;
+          z-index: 9;
+        }
+        [cardview-title] {
+          line-height: 30px;
+          padding-bottom: 20px;
+          font-weight: 900;
+          color: #fff !important;
+          z-index: 9;
+        }
+      }
+      [img-cover] {
+        position: absolute;
+        top: 0px;
+        height: 130px;
+        width: 100%;
+        background-color: rgba(106, 106, 191, 0.9);
+        z-index: 1;
+        img {
+          height: 130px;
+          width: 100%;
+        }
+        .img-color-cover {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: rgba(106, 106, 191, 0.85);
+        }
+      }
+    }
+
+    [image-section] {
+      [img-src] {
+        width: 65%;
+        margin: 40px auto;
+        display: block;
+        z-index: 1;
+      }
+
+      .movie_img_adj {
+        margin-top: 0px;
+      }
+      .hobby_img_adj {
+        img {
+          width: 80%;
+        }
+      }
+
+      .mbhc_img_adj {
+        width: 80%;
+      }
+    }
+
+    [text-section] {
+      width: 95%;
+      margin: 0px auto 20px;
+      font-size: 18px;
+      font-weight: 500;
+      .font_100 {
+        font-weight: 100;
+      }
+      .font_500 {
+        font-weight: 500;
+      }
+      .font_size_adj {
+        font-size: 14px;
+      }
+      .font_under {
+        border-bottom: 1px solid #000;
+        padding-bottom: 5px;
+      }
+      .mbhc_top_text_adj {
+        font-size: 18px;
+        line-height: 28px;
+        text-align: center;
+      }
+      .mbhc_bottom_text_adj {
+        font-size: 14px;
+        line-height: 22px;
+        text-align: center;
+        font-weight: 100;
+        color: #888;
+      }
+      a {
+        color: #fff;
+        text-decoration: none;
+        background: #7875dc;
+        padding: 10px 20px;
+        display: block;
+        text-align: center;
+        width: 100%;
+        font-weight: 400;
+        border-radius: 7px;
+        font-size: 18px;
+        margin: 0px auto;
+      }
+
+      .share_button {
+        background: #fe6a84;
+        color: #fff;
+      }
+
+      .naver_map {
+        background: #1dbe42;
+      }
+    }
+
+    .div_dot {
+      display: block;
+      height: 32px;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 25px;
+      .dot {
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: #000000;
+        display: inline-block;
+        margin: 18px 5px;
+      }
+    }
+  }
+
+  [harucard-bookmark-list] {
+    width: 90%;
+    margin-top: 10px;
+    position: relative;
+    z-index: 999;
+    .title {
+      color: theme-colors('textColors', 'primary');
+    }
+    .category {
+      color: #999999;
+    }
+    .harucard-new {
+      font-size: 0.8rem;
+      background-color: #fe6a84;
+    }
+  }
+  //add class
+  .item-block {
+    width: 100%;
+    margin: 10px 0px;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #d2d2d2;
+    .item-inner {
+      border-bottom: 0 !important;
+      padding-right: 9px !important;
+      .label {
+        .title {
+          color: theme-colors('textColors', 'primary');
+          font-weight: 500;
+          margin: 0px;
+          width: 85%;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          display: inline-block;
+          overflow: hidden;
+        }
+        .category {
+          font-size: 1.2rem;
+          color: #333;
+          .item_data {
+            color: #999;
+          }
+        }
+        .date_num {
+          position: absolute;
+          color: #999999;
+          height: 50%;
+          top: 0;
+          right: 19px;
+          bottom: 0;
+          margin: auto;
+          .heart.item-icon {
+            display: block;
+          }
+          .date_num_txt {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+}

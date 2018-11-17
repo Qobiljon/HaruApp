@@ -1,0 +1,11 @@
+import { Component, ViewChild } from '@angular/core';
+import { Content, NavController, ViewController, NavParams, Events, Platform, IonicPage } from 'ionic-angular';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { Media, MediaObject } from '@ionic-native/media';
+import { StatusBar } from '@ionic-native/status-bar';
+import { StorageProvider } from '../../../providers/ht1/storage/storage';
+import { UtilProvider } from '../../../providers/ht1/util/util';
+import { ApiProvider } from '../../../providers/ht1/api/api';
+import { Chart } from 'chart.js';
+import { Ht1PgConfig } from '../config/pg.config';
+import { Ht1Pg16Data } from './ht1_pg16.data';

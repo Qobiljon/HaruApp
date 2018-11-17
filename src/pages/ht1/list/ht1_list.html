@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-center>오늘하루 [우울·불안]</ion-title>
+    <ion-buttons end>
+      <button ion-button primary color="light">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid *ngIf="!item" padding>
+    <ion-row>
+      <ion-col col-12>
+        <ion-list no-margin harutoday-list>
+          <ion-item class="zone-item" *ngIf="z1items.length > 0">
+            <div text-center>심리교육 존 (1~6회기)</div>
+          </ion-item>
+
+          <ion-item *ngFor="let item of z1items;let i = index" (click)="itemTapped($event, item)">
+            <ion-avatar item-left>
+              <img src="assets/ht1/ht1/img/common/icon_pg{{item.num}}.png">
+            </ion-avatar>
+            <div class="title"><span [innerHTML]="item['ptitle']"></span> <ion-badge *ngIf="item.targetdate == todayDate" class="harutoday-new">N</ion-badge></div>
+            <div class="item-data">
+              <span class="item-date">[{{item.num}}일차] {{item.targetdate}} ({{item.targetday}})</span>
+              <span><ion-icon *ngIf="item.bookmark" class="heart" name="heart" color="primary"></ion-icon>
+              <ion-icon *ngIf="!item.bookmark" class="heart" name="heart-outline" color="primary"></ion-icon> 즐겨찾기</span>
+            </div>
+          </ion-item>
+
+          <ion-item class="zone-item" *ngIf="z2items.length > 0">
+            <div text-center>실천하기 존 (7~13회기)</div>
+          </ion-item>
+
+          <ion-item *ngFor="let item of z2items;let i = index" (click)="itemTapped($event, item)">
+            <ion-avatar item-left>
+              <img src="assets/ht1/ht1/img/common/icon_pg{{item.num}}.png">
+            </ion-avatar>
+            <div class="title"><span [innerHTML]="item['ptitle']"></span> <ion-badge *ngIf="item.targetdate == todayDate" class="harutoday-new">N</ion-badge></div>
+            <div class="item-data">
+              <span class="item-date">[{{item.num}}일차] {{item.targetdate}} ({{item.targetday}})</span>
+              <span><ion-icon *ngIf="item.bookmark" class="heart" name="heart" color="primary"></ion-icon>
+              <ion-icon *ngIf="!item.bookmark" class="heart" name="heart-outline" color="primary"></ion-icon> 즐겨찾기</span>
+            </div>
+          </ion-item>
+
+          <ion-item class="zone-item" *ngIf="z3items.length > 0">
+            <div text-center>이완하기 존 (14~24회기)</div>
+          </ion-item>
+
+          <ion-item *ngFor="let item of z3items;let i = index" (click)="itemTapped($event, item)">
+            <ion-avatar item-left>
+              <img src="assets/ht1/ht1/img/common/icon_pg{{item.num}}.png">
+            </ion-avatar>
+            <div class="title"><span [innerHTML]="item['ptitle']"></span> <ion-badge *ngIf="item.targetdate == todayDate" class="harutoday-new">N</ion-badge></div>
+            <div class="item-data">
+              <span class="item-date">[{{item.num}}일차] {{item.targetdate}} ({{item.targetday}})</span>
+              <span><ion-icon *ngIf="item.bookmark" class="heart" name="heart" color="primary"></ion-icon>
+              <ion-icon *ngIf="!item.bookmark" class="heart" name="heart-outline" color="primary"></ion-icon> 즐겨찾기</span>
+            </div>
+          </ion-item>
+
+          <ion-item class="zone-item" *ngIf="z4items.length > 0">
+            <div text-center>생각바꾸기 존 (24~38회기)</div>
+          </ion-item>
+
+          <ion-item *ngFor="let item of z4items;let i = index" (click)="itemTapped($event, item)">
+            <ion-avatar item-left>
+              <img src="assets/ht1/ht1/img/common/icon_pg{{item.num}}.png">
+            </ion-avatar>
+            <div class="title"><span [innerHTML]="item['ptitle']"></span> <ion-badge *ngIf="item.targetdate == todayDate" class="harutoday-new">N</ion-badge></div>
+            <div class="item-data">
+              <span class="item-date">[{{item.num}}일차] {{item.targetdate}} ({{item.targetday}})</span>
+              <span><ion-icon *ngIf="item.bookmark" class="heart" name="heart" color="primary"></ion-icon>
+              <ion-icon *ngIf="!item.bookmark" class="heart" name="heart-outline" color="primary"></ion-icon> 즐겨찾기</span>
+            </div>
+          </ion-item>
+
+          <ion-item class="zone-item" *ngIf="z5items.length > 0">
+            <div text-center>문제해결하기 존 (39~48회기)</div>
+          </ion-item>
+
+          <ion-item *ngFor="let item of z5items;let i = index" (click)="itemTapped($event, item)">
+            <ion-avatar item-left>
+              <img src="assets/ht1/ht1/img/common/icon_pg{{item.num}}.png">
+            </ion-avatar>
+            <div class="title"><span [innerHTML]="item['ptitle']"></span> <ion-badge *ngIf="item.targetdate == todayDate" class="harutoday-new">N</ion-badge></div>
+            <div class="item-data">
+              <span class="item-date">[{{item.num}}일차] {{item.targetdate}} ({{item.targetday}})</span>
+              <span><ion-icon *ngIf="item.bookmark" class="heart" name="heart" color="primary"></ion-icon>
+              <ion-icon *ngIf="!item.bookmark" class="heart" name="heart-outline" color="primary"></ion-icon> 즐겨찾기</span>
+            </div>
+          </ion-item>
+
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

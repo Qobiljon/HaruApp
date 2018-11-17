@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>하루카드 기분평가 전체기록</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="closeRatingHistoryModal()">
+        <ion-icon name="close-circle"></ion-icon> 닫기
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding>
+  <ion-grid *ngIf="ratingNumItems" padding>
+    <ion-row>
+      <ion-col col-4 padding class="dash-box-inner" *ngFor="let item of ratingNumItems;let i = index;">
+          <h6 class="calendar"><ion-icon name="calendar" color="primary"></ion-icon>{{item}}</h6>
+          <img src="assets/hc/hc/img/feel/{{ratingDataItems[i]}}.png" class="rating-img">
+          <span class="text-color">{{ratingDataItems[i]}} 점</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,1120 @@
+<ion-header no-border class="header-container">
+  <ion-navbar hideBackButton transparent>
+    <ion-buttons (click)="close()" left>
+      <button ion-button class="header-btn header-color" icon-start>
+         <img src="assets/ht2/ht2/img/common/home_btn.png" alt="">
+      </button>
+    </ion-buttons>
+    <ion-buttons left>
+      <button ion-button round class="header-title header-color">
+        {{itemTarget.ztitle}}&nbsp;&gt;&nbsp;<span [innerHTML]="itemTarget['ptitle']"></span>&nbsp;<span class="header-num">({{itemTarget.pnum}}회기&nbsp;{{pgConfig.sceneNumber}}/{{pgConfig.sceneMaxNumber}})</span>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button class="header-btn mute-color" *ngIf="pgConfig.volumeState == '0'" (click)="changeVolumeState()">
+        <img src="assets/ht2/ht2/img/common/mute_btn.png" alt="">
+      </button>
+      <button ion-button class="header-btn sound-color" *ngIf="pgConfig.volumeState == '1'" (click)="changeVolumeState()">
+        <img src="assets/ht2/ht2/img/common/sound_btn.png" alt="">
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button class="header-btn header-color" *ngIf="item && item.ht_audio != ''" (click)="playSound(item.ht_base_audio, item.ht_pcode, item.ht_audio)">
+        <img src="assets/ht2/ht2/img/common/play_btn.png" alt="">
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+  <div class="title" *ngIf="item && item['ht_title'] != ''" [innerHTML]="item['ht_title']"></div>
+</ion-header>
+
+<ion-content no-padding fullscreen>
+
+  <div class="hcct001-1" *ngIf="item && item.ht_tpcode == 'hcct001-1'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="center-image">
+            <img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <blockquote class="center-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct001-2" *ngIf="item && item.ht_tpcode == 'hcct001-2'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="center-image">
+            <img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <blockquote class="center-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct001-3" *ngIf="item && item.ht_tpcode == 'hcct001-3'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-image" *ngIf="item['ht_image1'] != ''" text-center><img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt=""></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct001-4" *ngIf="item && item.ht_tpcode == 'hcct001-4'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-image" *ngIf="item['ht_image1'] != ''" text-center><img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt=""></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct002" *ngIf="item && item.ht_tpcode == 'hcct002'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-image" *ngIf="item['ht_image1'] != ''" text-center><img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt=""></div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <div class="top-text" *ngIf="item['ht_text2'] != ''" [innerHTML]="item['ht_text2']"></div>
+          <div class="bottom-image" *ngIf="item['ht_image2'] != ''" text-center><img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image2']}}?ver={{item['ht_ver']}}" alt=""></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct003" *ngIf="item && item.ht_tpcode == 'hcct003'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="center-text">
+             <div *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+             <div *ngIf="item['ht_text2'] != ''" [innerHTML]="item['ht_text2']"></div>
+             <div *ngIf="item['ht_text3'] != ''" [innerHTML]="item['ht_text3']"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct006" *ngIf="item && item.ht_tpcode == 'hcct005'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="center-image">
+            <img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <blockquote class="center-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct006-1" *ngIf="item && item.ht_tpcode == 'hcct005-1'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="center-image">
+            <img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <blockquote class="center-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct006" *ngIf="item && item.ht_tpcode == 'hcct006'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="center-image">
+            <img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/common/{{item['ht_tpimage']}}?ver={{item['ht_ver']}}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <blockquote class="center-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct006-1" *ngIf="item && item.ht_tpcode == 'hcct006-1'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="center-image">
+            <img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/common/{{item['ht_tpimage']}}?ver={{item['ht_ver']}}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <blockquote class="center-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct007" *ngIf="item && item.ht_tpcode == 'hcct007'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="center-image">
+            <img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/common/{{item['ht_tpimage']}}?ver={{item['ht_ver']}}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <blockquote class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></blockquote>
+          <div class="bottom-image" *ngIf="item['ht_image1'] != ''" text-center><img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt=""></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct008" *ngIf="item && item.ht_tpcode == 'hcct008'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="center-image">
+            <img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/common/{{item['ht_tpimage']}}?ver={{item['ht_ver']}}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <blockquote class="center-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct009" *ngIf="item && item.ht_tpcode == 'hcct009'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-image" *ngIf="item['ht_tpimage'] != ''" text-center><img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/common/{{item['ht_tpimage']}}?ver={{item['ht_ver']}}" alt=""></div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <div class="top-text" *ngIf="item['ht_text2'] != ''" [innerHTML]="item['ht_text2']"></div>
+          <div class="bottom-image" *ngIf="item['ht_image1'] != ''" text-center><img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt=""></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct010" *ngIf="item && item.ht_tpcode == 'hcct010'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-image" *ngIf="item['ht_image1'] != ''" text-center><img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt=""></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct019" *ngIf="item && item.ht_tpcode == 'hcst001'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text" text-center>
+            <table align="center">
+              <tr>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[1]" (click)="changeAmPmUp(1)">
+                    <ion-icon name="arrow-up"></ion-icon>
+                  </button>
+                </td>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[1]" (click)="changeHourUp(1)">
+                    <ion-icon name="arrow-up"></ion-icon>
+                  </button>
+                </td>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[1]" (click)="changeMinUp(1)">
+                    <ion-icon name="arrow-up"></ion-icon>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td text-center>
+                  <ion-label text-center class="time-input" [innerHTML]="pgConfig.textAmPm[dtPg.resultUcSleepTime[1].ampm]"></ion-label>
+                </td>
+                <td text-center>
+                  <ion-label text-center class="time-input" [innerHTML]="pgConfig.textHour[dtPg.resultUcSleepTime[1].hour]"></ion-label>
+                </td>
+                <td text-center>
+                  <ion-label text-center class="time-input" [innerHTML]="pgConfig.textMin[dtPg.resultUcSleepTime[1].min]"></ion-label>
+                </td>
+              </tr>
+              <tr>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[1]" (click)="changeAmPmDown(1)">
+                    <ion-icon name="arrow-down"></ion-icon>
+                  </button>
+                </td>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[1]" (click)="changeHourDown(1)">
+                    <ion-icon name="arrow-down"></ion-icon>
+                  </button>
+                </td>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[1]" (click)="changeMinDown(1)">
+                    <ion-icon name="arrow-down"></ion-icon>
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="bottom-box">
+          <div text-center><button ion-button [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[1]" (click)="sendUcSleepTime(1)">제출하기</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct019" *ngIf="item && item.ht_tpcode == 'hcst002'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text" text-center>
+            <table align="center">
+              <tr>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[2]" (click)="changeAmPmUp(2)">
+                    <ion-icon name="arrow-up"></ion-icon>
+                  </button>
+                </td>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[2]" (click)="changeHourUp(2)">
+                    <ion-icon name="arrow-up"></ion-icon>
+                  </button>
+                </td>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[2]" (click)="changeMinUp(2)">
+                    <ion-icon name="arrow-up"></ion-icon>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td text-center>
+                  <ion-label text-center class="time-input" [innerHTML]="pgConfig.textAmPm[dtPg.resultUcSleepTime[2].ampm]"></ion-label>
+                </td>
+                <td text-center>
+                  <ion-label text-center class="time-input" [innerHTML]="pgConfig.textHour[dtPg.resultUcSleepTime[2].hour]"></ion-label>
+                </td>
+                <td text-center>
+                  <ion-label text-center class="time-input" [innerHTML]="pgConfig.textMin[dtPg.resultUcSleepTime[2].min]"></ion-label>
+                </td>
+              </tr>
+              <tr>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[2]" (click)="changeAmPmDown(2)">
+                    <ion-icon name="arrow-down"></ion-icon>
+                  </button>
+                </td>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[2]" (click)="changeHourDown(2)">
+                    <ion-icon name="arrow-down"></ion-icon>
+                  </button>
+                </td>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[2]" (click)="changeMinDown(2)">
+                    <ion-icon name="arrow-down"></ion-icon>
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="bottom-box">
+          <div text-center><button ion-button [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[2]" (click)="sendUcSleepTime(2)">제출하기</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct019" *ngIf="item && item.ht_tpcode == 'hcst003'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text" text-center>
+            <table align="center">
+              <tr>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" disabled>
+                    <ion-icon name="arrow-up"></ion-icon>
+                  </button>
+                </td>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[3]" (click)="changeHourUp(3)">
+                    <ion-icon name="arrow-up"></ion-icon>
+                  </button>
+                </td>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[3]" (click)="changeMinUp(3)">
+                    <ion-icon name="arrow-up"></ion-icon>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td text-center>
+                  <ion-label text-center class="time-input" [innerHTML]="pgConfig.textAmPm[dtPg.resultUcSleepTime[3].ampm]"></ion-label>
+                </td>
+                <td text-center>
+                  <ion-label text-center class="time-input" [innerHTML]="pgConfig.textHour[dtPg.resultUcSleepTime[3].hour]"></ion-label>
+                </td>
+                <td text-center>
+                  <ion-label text-center class="time-input" [innerHTML]="pgConfig.textMin[dtPg.resultUcSleepTime[3].min]"></ion-label>
+                </td>
+              </tr>
+              <tr>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" disabled>
+                    <ion-icon name="arrow-down"></ion-icon>
+                  </button>
+                </td>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[3]" (click)="changeHourDown(3)">
+                    <ion-icon name="arrow-down"></ion-icon>
+                  </button>
+                </td>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[3]" (click)="changeMinDown(3)">
+                    <ion-icon name="arrow-down"></ion-icon>
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="bottom-box">
+          <div text-center><button ion-button [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[3]" (click)="sendUcSleepTime(3)">제출하기</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct019" *ngIf="item && item.ht_tpcode == 'hcst004'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text" text-center>
+            <table align="center">
+              <tr>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating" (click)="changeWakeHourUp()">
+                    <ion-icon name="arrow-up"></ion-icon>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td text-center>
+                  <ion-label text-center class="time-input" [innerHTML]="pgConfig.textHour[dtPg.resultUcWakeTime.hour]"></ion-label>
+                </td>
+              </tr>
+              <tr>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating" (click)="changeWakeHourDown()">
+                    <ion-icon name="arrow-down"></ion-icon>
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="bottom-box">
+          <div text-center><button ion-button [disabled]="pgConfig.isTodaySleepRating" (click)="sendTodaySleepRating()">제출하기</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct017" *ngIf="item && item.ht_tpcode == 'hcct017'">
+    <div class="container">
+      <canvas #lineCanvas></canvas>
+    </div>
+  </div>
+
+  <div class="hcct014-1" *ngIf="item && item.ht_tpcode == 'hcst014'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%">
+              <tr>
+                <td width="25%"><span class="strong">1. 언제</span></td>
+                <td width="25%"><span class="strong">2. 누구와</span></td>
+                <td width="25%"><span class="strong">3. 어떤 일이</span></td>
+                <td width="25%"><span class="strong">4. 결과</span></td>
+              </tr>
+              <tr>
+                <td width="25%"><span>치료 후 직장에 복귀하려고 할 때</span></td>
+                <td width="25%"><span>해당 없음</span></td>
+                <td width="25%"><span>항암 치료와 직장 생활을 병행하기 어려움</span></td>
+                <td width="25%"><span>어떻게 할지 고민함</span></td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct014-1" *ngIf="item && item.ht_tpcode == 'hcst015'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%">
+              <tr>
+                <td height="35">
+                   <ion-badge class="strong" primary color="light"><span [innerHTML]="dtPg.textUcInput1[1]"></span></ion-badge>
+                </td>
+              </tr>
+              <tr>
+                <td height="35">
+                   <ion-badge class="strong" primary color="light"><span [innerHTML]="dtPg.textUcInput1[2]"></span></ion-badge>
+                </td>
+              </tr>
+              <tr>
+                <td height="35">
+                   <ion-badge class="strong" primary color="light"><span [innerHTML]="dtPg.textUcInput1[3]"></span></ion-badge>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct014-1" *ngIf="item && item.ht_tpcode == 'hcst016'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%">
+              <tr>
+                <td height="25" colspan="2">
+                  <div class="strong round_line" *ngIf="item['ht_text2'] != ''" [innerHTML]="item['ht_text2']"></div>
+                </td>
+              </tr>
+              <tr>
+                <td width="50%" text-center><span class="strong">장점</span></td>
+                <td width="50%" text-center><span class="strong">단점</span></td>
+              </tr>
+              <tr>
+                <td width="50%">
+                  <table width="100%">
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput16" value="1" [(ngModel)]="dtPg.resultUcInput16[1]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[1]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput16" value="2" [(ngModel)]="dtPg.resultUcInput16[2]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[2]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput16" value="3" [(ngModel)]="dtPg.resultUcInput16[3]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[3]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput16" value="4" [(ngModel)]="dtPg.resultUcInput16[4]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[4]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput16" value="5" [(ngModel)]="dtPg.resultUcInput16[5]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[5]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput16" value="6" [(ngModel)]="dtPg.resultUcInput16[6]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[6]"></span>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td width="50%">
+                  <table width="100%">
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput16" value="7" [(ngModel)]="dtPg.resultUcInput16[7]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[7]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput16" value="8" [(ngModel)]="dtPg.resultUcInput16[8]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[8]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput16" value="9" [(ngModel)]="dtPg.resultUcInput16[9]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[9]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput16" value="10" [(ngModel)]="dtPg.resultUcInput16[10]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[10]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput16" value="11" [(ngModel)]="dtPg.resultUcInput16[11]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[11]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput16" value="12" [(ngModel)]="dtPg.resultUcInput16[12]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[12]"></span>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+            <div text-center><button ion-button [disabled]="dtPg.isUcInput16" (click)="sendUcInput16()">제출하기</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct014-1" *ngIf="item && item.ht_tpcode == 'hcst017'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%">
+              <tr>
+                <td height="25" colspan="2">
+                  <div class="strong round_line" *ngIf="item['ht_text2'] != ''" [innerHTML]="item['ht_text2']"></div>
+                </td>
+              </tr>
+              <tr>
+                <td width="50%" text-center><span class="strong">장점</span></td>
+                <td width="50%" text-center><span class="strong">단점</span></td>
+              </tr>
+              <tr>
+                <td width="50%">
+                  <table width="100%">
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput17" value="1" [(ngModel)]="dtPg.resultUcInput17[1]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[1]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput17" value="2" [(ngModel)]="dtPg.resultUcInput17[2]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[2]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput17" value="3" [(ngModel)]="dtPg.resultUcInput17[3]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[3]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput17" value="4" [(ngModel)]="dtPg.resultUcInput17[4]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[4]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput17" value="5" [(ngModel)]="dtPg.resultUcInput17[5]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[5]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput17" value="6" [(ngModel)]="dtPg.resultUcInput17[6]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[6]"></span>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td width="50%">
+                  <table width="100%">
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput17" value="7" [(ngModel)]="dtPg.resultUcInput17[7]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[7]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput17" value="8" [(ngModel)]="dtPg.resultUcInput17[8]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[8]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput17" value="9" [(ngModel)]="dtPg.resultUcInput17[9]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[9]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput17" value="10" [(ngModel)]="dtPg.resultUcInput17[10]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[10]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput17" value="11" [(ngModel)]="dtPg.resultUcInput17[11]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[11]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput17" value="12" [(ngModel)]="dtPg.resultUcInput17[12]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[12]"></span>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+            <div text-center><button ion-button [disabled]="dtPg.isUcInput17" (click)="sendUcInput17()">제출하기</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="hcct014-1" *ngIf="item && item.ht_tpcode == 'hcst018'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%">
+              <tr>
+                <td height="25" colspan="2">
+                  <div class="strong round_line" *ngIf="item['ht_text2'] != ''" [innerHTML]="item['ht_text2']"></div>
+                </td>
+              </tr>
+              <tr>
+                <td width="50%" text-center><span class="strong">장점</span></td>
+                <td width="50%" text-center><span class="strong">단점</span></td>
+              </tr>
+              <tr>
+                <td width="50%">
+                  <table width="100%">
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput18" value="1" [(ngModel)]="dtPg.resultUcInput18[1]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[1]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput18" value="2" [(ngModel)]="dtPg.resultUcInput18[2]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[2]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput18" value="3" [(ngModel)]="dtPg.resultUcInput18[3]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[3]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput18" value="4" [(ngModel)]="dtPg.resultUcInput18[4]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[4]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput18" value="5" [(ngModel)]="dtPg.resultUcInput18[5]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[5]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput18" value="6" [(ngModel)]="dtPg.resultUcInput18[6]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[6]"></span>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td width="50%">
+                  <table width="100%">
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput18" value="7" [(ngModel)]="dtPg.resultUcInput18[7]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[7]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput18" value="8" [(ngModel)]="dtPg.resultUcInput18[8]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[8]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput18" value="9" [(ngModel)]="dtPg.resultUcInput18[9]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[9]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput18" value="10" [(ngModel)]="dtPg.resultUcInput18[10]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[10]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput18" value="11" [(ngModel)]="dtPg.resultUcInput18[11]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[11]"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <ion-checkbox [disabled]="dtPg.isUcInput18" value="12" [(ngModel)]="dtPg.resultUcInput18[12]"></ion-checkbox> <span [innerHTML]="dtPg.textUcInput2[12]"></span>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+            <div text-center><button ion-button [disabled]="dtPg.isUcInput18" (click)="sendUcInput18()">제출하기</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct014-1" *ngIf="item && item.ht_tpcode == 'hcst019'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%">
+              <tr>
+                <td>
+                  <div radio-group [(ngModel)]="dtPg.resultUcInput19">
+                    <div><ion-radio [disabled]="dtPg.isUcInput19" value="1"></ion-radio> <span [innerHTML]="dtPg.textUcInput1[1]"></span></div>
+                    <div><ion-radio [disabled]="dtPg.isUcInput19" value="2"></ion-radio> <span [innerHTML]="dtPg.textUcInput1[2]"></span></div>
+                    <div><ion-radio [disabled]="dtPg.isUcInput19" value="3"></ion-radio> <span [innerHTML]="dtPg.textUcInput1[3]"></span></div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+            <div text-center><button ion-button [disabled]="dtPg.isUcInput19" (click)="sendUcInput19()">제출하기</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct014-1" *ngIf="item && item.ht_tpcode == 'hcst020'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%" *ngIf="dtPg.resultUcInput19 == 1">
+              <tr>
+                <td height="25">
+                  <div class="strong round_line" [innerHTML]="dtPg.textUcInput1[1]"></div>
+                </td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><span>계획 1: 직장 상사에 연락하고 약속 날짜를 잡는다.</span></ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><span>계획 2: 직접 만나서 사정을 이야기한다.</span></ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><span>계획 3: 근무 날짜 및 조건을 협의한다.</span></ion-badge></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct014-1" *ngIf="item && item.ht_tpcode == 'hcst021'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%" *ngIf="dtPg.resultUcInput19 == 2">
+              <tr>
+                <td height="25">
+                  <div class="strong round_line" [innerHTML]="dtPg.textUcInput1[2]"></div>
+                </td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><span>계획 1: 복귀를 미룰 수 있는지 사내 규정을 확인한다.</span></ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><span>계획 2: 직장 상사에 연락한다.</span></ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><span>계획 3: 사정을 설명한다.</span></ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><span>계획 4: 3개월 뒤 다시 이야기하기로 한다.</span></ion-badge></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct014-1" *ngIf="item && item.ht_tpcode == 'hcst022'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%" *ngIf="dtPg.resultUcInput19 == 3">
+              <tr>
+                <td height="25">
+                  <div class="strong round_line" [innerHTML]="dtPg.textUcInput1[3]"></div>
+                </td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><span>계획 1: 아르바이트 채용 웹페이지에 접속한다.</span></ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><span>계획 2: 채용 공고를 살펴본다.</span></ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><span>계획 3: 건강상태를 고려하여 현실적으로 가능한 일자리를 찾는다.</span></ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><span>계획 4: 적혀진 연락처를 통해 면접 날짜를 잡는다.</span></ion-badge></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct014-1" *ngIf="item && item.ht_tpcode == 'hcst023'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%" *ngIf="dtPg.resultUcInput19 == 1">
+              <tr>
+                <td height="25">
+                  <div class="strong round_line" [innerHTML]="dtPg.textUcInput1[1]"></div>
+                </td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><span>계획 1: 직장 상사에 연락하고 약속 날짜를 잡는다.</span></ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><span>계획 2: 직접 만나서 사정을 이야기한다.</span></ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><span>계획 3: 근무 날짜 및 조건을 협의한다.</span></ion-badge></td>
+              </tr>
+              <tr>
+                 <td height="35" text-center>
+                   <div *ngIf="item['ht_image1'] != ''" text-center><img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt=""></div>
+                </td>
+              </tr>
+            </table>
+            <table width="100%" *ngIf="dtPg.resultUcInput19 == 2">
+              <tr>
+                <td height="25" colspan="3">
+                  <div class="strong round_line" [innerHTML]="dtPg.textUcInput1[2]"></div>
+                </td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><span>계획 1: 복귀를 미룰 수 있는지 사내 규정을 확인한다.</span></ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><span>계획 2: 직장 상사에 연락한다.</span></ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><span>계획 3: 사정을 설명한다.</span></ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><span>계획 4: 3개월 뒤 다시 이야기하기로 한다.</span></ion-badge></td>
+              </tr>
+              <tr>
+                 <td height="35" text-center>
+                   <div *ngIf="item['ht_image1'] != ''" text-center><img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt=""></div>
+                </td>
+              </tr>
+            </table>
+            <table width="100%" *ngIf="dtPg.resultUcInput19 == 3">
+              <tr>
+                <td height="25" colspan="3">
+                  <div class="strong round_line" [innerHTML]="dtPg.textUcInput1[3]"></div>
+                </td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><span>계획 1: 아르바이트 채용 웹페이지에 접속한다.</span></ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><span>계획 2: 채용 공고를 살펴본다.</span></ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><span>계획 3: 건강상태를 고려하여 현실적으로 가능한 일자리를 찾는다.</span></ion-badge></td>
+              </tr>
+              <tr>
+                <td height="35"><ion-badge class="strong" primary color="light"><span>계획 4: 적혀진 연락처를 통해 면접 날짜를 잡는다.</span></ion-badge></td>
+              </tr>
+              <tr>
+                 <td height="35" text-center>
+                   <div *ngIf="item['ht_image1'] != ''" text-center><img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt=""></div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct013" *ngIf="item && item.ht_tpcode == 'hcst029'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%" *ngIf="!dtPg.isUcQuiz1">
+              <tr>
+                <td>
+                  <div radio-group [(ngModel)]="dtPg.resultUcQuiz1">
+                    <div><ion-radio value="1"></ion-radio> 파악</div>
+                    <div><ion-radio value="2"></ion-radio> 선택</div>
+                    <div><ion-radio value="3"></ion-radio> 실천</div>
+                    <div><ion-radio value="4"></ion-radio> 평가</div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table width="100%" *ngIf="dtPg.isUcQuiz1">
+              <tr>
+                <td>
+                  <div radio-group [(ngModel)]="dtPg.passUcQuiz1">
+                    <div><ion-radio disabled value="1"></ion-radio> 파악</div>
+                    <div><ion-radio disabled value="2"></ion-radio> 선택</div>
+                    <div><ion-radio disabled value="3"></ion-radio> 실천</div>
+                    <div><ion-radio disabled value="4"></ion-radio> 평가</div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+            <div text-center><button ion-button [disabled]="dtPg.isUcQuiz1" (click)="sendUcQuiz1()">제출하기</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct013" *ngIf="item && item.ht_tpcode == 'hcst030'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%" *ngIf="!dtPg.isUcQuiz2">
+              <tr>
+                <td>
+                  <div radio-group [(ngModel)]="dtPg.resultUcQuiz2">
+                    <div><ion-radio value="1"></ion-radio> 대안찾기</div>
+                    <div><ion-radio value="2"></ion-radio> 선택하기</div>
+                    <div><ion-radio value="3"></ion-radio> 실천하기</div>
+                    <div><ion-radio value="4"></ion-radio> 평가하기</div>
+                    <div><ion-radio value="5"></ion-radio> 파악하기</div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table width="100%" *ngIf="dtPg.isUcQuiz2">
+              <tr>
+                <td>
+                  <div radio-group [(ngModel)]="dtPg.passUcQuiz2">
+                    <div><ion-radio disabled value="1"></ion-radio> 대안찾기</div>
+                    <div><ion-radio disabled value="2"></ion-radio> 선택하기</div>
+                    <div><ion-radio disabled value="3"></ion-radio> 실천하기</div>
+                    <div><ion-radio disabled value="4"></ion-radio> 평가하기</div>
+                    <div><ion-radio disabled value="5"></ion-radio> 파악하기</div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+            <div text-center><button ion-button [disabled]="dtPg.isUcQuiz2" (click)="sendUcQuiz2()">제출하기</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>
+
+<div no-border class="footer-container">
+    <ion-buttons left class="footer-left">
+      <button ion-button class="footer-btn footer-color" (click)="goPrev()">
+         <img src="assets/ht2/ht2/img/common/prev_btn.png" alt="">
+      </button>
+    </ion-buttons>
+
+    <ion-buttons end class="footer-right">
+      <button ion-button class="footer-btn footer-color" (click)="goNext()" >
+        <img src="assets/ht2/ht2/img/common/next_btn.png" alt="">
+      </button>
+    </ion-buttons>
+</div>
+

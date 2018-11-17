@@ -1,0 +1,38 @@
+page-alarm {
+	/* 시간 설정 */
+	.alarm {
+		.container {
+			width: 100%;
+			margin: 0 auto;
+			.center {
+				.center-wrap {
+					.time-btn {
+						width: 60px;
+						height: 25px;
+					}
+					.time-input {
+						border:1px solid theme-colors('textColors', 'primary') !important;
+						width: 60px;
+						margin: 2px;
+						font-size: 1.9rem;
+						font-weight: 500;
+						line-height: 2.4rem;
+						text-align: center;
+						padding: 5px;
+					}
+					.center-text {
+						font-size: 1.5rem;
+						font-weight: 300;
+						line-height: 2.2rem;
+						text-align: center;
+						padding: 10px 20px 10px 20px;
+						.strong {
+							font-size: 1.8rem;
+							font-weight: 500;
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>하루카드 기분평가</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="closeRatingModal()">
+        <ion-icon name="close-circle"></ion-icon> 닫기
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-bounce>
+  <div>
+    <ion-card>
+      <ion-row>
+        <ion-col text-center><h1 class="head-title" color="primary">오늘의 기분은 어떤가요?</h1></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center><img src="assets/hc/hc/img/feel/{{rating}}.png" class="rating-img"></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center><ion-badge class="point">{{todayCount}}회기</ion-badge> <ion-badge class="point">{{rating}}점</ion-badge></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center class="range">
+          <ion-range min="0" max="10" step="1" snaps="true" [(ngModel)]="rating" color="primary">
+            <ion-label range-left color="primary">매우 나쁨</ion-label>
+            <ion-label range-right color="primary">매우 좋음</ion-label>
+          </ion-range>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center class="button"><button ion-button (click)="sendRatingModal(this.rating)">제출하기</button></ion-col>
+      </ion-row>
+    </ion-card>
+
+    
+
+  </div>
+</ion-content>

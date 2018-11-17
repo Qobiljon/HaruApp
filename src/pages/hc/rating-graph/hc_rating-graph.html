@@ -1,0 +1,19 @@
+<ion-header no-border> 
+  <ion-navbar transparent>
+    <ion-title>하루카드 기분평가 회기별 그래프</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="closeRatingGraphModal()">
+        <ion-icon name="close-circle"></ion-icon> 닫기
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content fullscreen>
+  <ion-grid *ngIf="ratingNumItems" padding>
+    <ion-row>
+       <ion-col col-12 padding>
+          <canvas #lineCanvas></canvas>
+       </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

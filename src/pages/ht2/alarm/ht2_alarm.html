@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button>
+        <ion-icon name="alarm"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center>알림시간 설정</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="confirm()">
+        <ion-icon name="checkmark-circle"></ion-icon> 완료
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header text-center color="primary">
+      <h1>오늘하루 현재 알림시간</h1>
+      <h2 color="primary">( 월~금 {{alarmMode}}  {{alarmHour}}시 {{alarmMin}}분 )</h2>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label color="primary">알림사용</ion-label>
+              <ion-toggle [(ngModel)]="alarmUse" (ionChange)="onChangeUse(alarmUse)"></ion-toggle>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+
+            <div class="alarm">
+              <div class="container">
+                <div class="center">
+                  <div class="center-wrap">
+                    <div class="center-text" text-center>
+                      <table align="center">
+                        <tr>
+                          <td text-center>
+                            <button ion-button text-center class="time-btn" [disabled]="!alarmUse" (click)="changeAmPmUp()">
+                              <ion-icon name="add-circle"></ion-icon>
+                            </button>
+                          </td>
+                          <td text-center>
+                            <button ion-button text-center class="time-btn" [disabled]="!alarmUse" (click)="changeHourUp()">
+                              <ion-icon name="add-circle"></ion-icon>
+                            </button>
+                          </td>
+                          <td text-center>
+                            <button ion-button text-center class="time-btn" [disabled]="!alarmUse" (click)="changeMinUp()">
+                              <ion-icon name="add-circle"></ion-icon>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td text-center>
+                            <ion-label text-center class="time-input" [innerHTML]="pgConfig.textAmPm[alarmMode]"></ion-label>
+                          </td>
+                          <td text-center>
+                            <ion-label text-center class="time-input" [innerHTML]="pgConfig.textHour[alarmHour]"></ion-label>
+                          </td>
+                          <td text-center>
+                            <ion-label text-center class="time-input" [innerHTML]="pgConfig.textMin[alarmMin]"></ion-label>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td text-center>
+                            <button ion-button text-center class="time-btn" [disabled]="!alarmUse" (click)="changeAmPmDown()">
+                              <ion-icon name="remove-circle"></ion-icon>
+                            </button>
+                          </td>
+                          <td text-center>
+                            <button ion-button text-center class="time-btn" [disabled]="!alarmUse" (click)="changeHourDown()">
+                              <ion-icon name="remove-circle"></ion-icon>
+                            </button>
+                          </td>
+                          <td text-center>
+                            <button ion-button text-center class="time-btn" [disabled]="!alarmUse" (click)="changeMinDown()">
+                              <ion-icon name="remove-circle"></ion-icon>
+                            </button>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <button (click)="confirm()" ion-button color="primary" full>알람설정</button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

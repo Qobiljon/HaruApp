@@ -1,0 +1,1521 @@
+<ion-header no-border class="header-container">
+  <ion-navbar hideBackButton transparent>
+    <ion-buttons (click)="close()" left>
+      <button ion-button class="header-btn header-color" icon-start>
+         <img src="assets/ht2/ht2/img/common/home_btn.png" alt="">
+      </button>
+    </ion-buttons>
+    <ion-buttons left>
+      <button ion-button round class="header-title header-color">
+        {{itemTarget.ztitle}}&nbsp;&gt;&nbsp;<span [innerHTML]="itemTarget['ptitle']"></span>&nbsp;<span class="header-num">({{itemTarget.pnum}}회기&nbsp;{{pgConfig.sceneNumber}}/{{pgConfig.sceneMaxNumber}})</span>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button class="header-btn mute-color" *ngIf="pgConfig.volumeState == '0'" (click)="changeVolumeState()">
+        <img src="assets/ht2/ht2/img/common/mute_btn.png" alt="">
+      </button>
+      <button ion-button class="header-btn sound-color" *ngIf="pgConfig.volumeState == '1'" (click)="changeVolumeState()">
+        <img src="assets/ht2/ht2/img/common/sound_btn.png" alt="">
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button class="header-btn header-color" *ngIf="item && item.ht_audio != ''" (click)="playSound(item.ht_base_audio, item.ht_pcode, item.ht_audio)">
+        <img src="assets/ht2/ht2/img/common/play_btn.png" alt="">
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+  <div class="title" *ngIf="item && item['ht_title'] != ''" [innerHTML]="item['ht_title']"></div>
+</ion-header>
+
+<ion-content no-padding fullscreen>
+
+  <div class="hcct001-1" *ngIf="item && item.ht_tpcode == 'hcct001-1'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="center-image">
+            <img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <blockquote class="center-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct001-2" *ngIf="item && item.ht_tpcode == 'hcct001-2'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="center-image">
+            <img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <blockquote class="center-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct001-3" *ngIf="item && item.ht_tpcode == 'hcct001-3'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-image" *ngIf="item['ht_image1'] != ''" text-center><img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt=""></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct001-4" *ngIf="item && item.ht_tpcode == 'hcct001-4'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-image" *ngIf="item['ht_image1'] != ''" text-center><img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt=""></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct002" *ngIf="item && item.ht_tpcode == 'hcct002'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-image" *ngIf="item['ht_image1'] != ''" text-center><img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt=""></div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <div class="top-text" *ngIf="item['ht_text2'] != ''" [innerHTML]="item['ht_text2']"></div>
+          <div class="bottom-image" *ngIf="item['ht_image2'] != ''" text-center><img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image2']}}?ver={{item['ht_ver']}}" alt=""></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct003" *ngIf="item && item.ht_tpcode == 'hcct003'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="center-text">
+             <div *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+             <div *ngIf="item['ht_text2'] != ''" [innerHTML]="item['ht_text2']"></div>
+             <div *ngIf="item['ht_text3'] != ''" [innerHTML]="item['ht_text3']"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct006" *ngIf="item && item.ht_tpcode == 'hcct005'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="center-image">
+            <img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <blockquote class="center-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct006-1" *ngIf="item && item.ht_tpcode == 'hcct005-1'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="center-image">
+            <img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <blockquote class="center-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct006" *ngIf="item && item.ht_tpcode == 'hcct006'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="center-image">
+            <img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/common/{{item['ht_tpimage']}}?ver={{item['ht_ver']}}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <blockquote class="center-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct006-1" *ngIf="item && item.ht_tpcode == 'hcct006-1'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="center-image">
+            <img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/common/{{item['ht_tpimage']}}?ver={{item['ht_ver']}}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <blockquote class="center-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct007" *ngIf="item && item.ht_tpcode == 'hcct007'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="center-image">
+            <img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/common/{{item['ht_tpimage']}}?ver={{item['ht_ver']}}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <blockquote class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></blockquote>
+          <div class="bottom-image" *ngIf="item['ht_image1'] != ''" text-center><img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt=""></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct008" *ngIf="item && item.ht_tpcode == 'hcct008'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="center-image">
+            <img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/common/{{item['ht_tpimage']}}?ver={{item['ht_ver']}}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <blockquote class="center-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct009" *ngIf="item && item.ht_tpcode == 'hcct009'">
+    <div class="container">
+      <div class="left">
+        <div class="left-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-image" *ngIf="item['ht_tpimage'] != ''" text-center><img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/common/{{item['ht_tpimage']}}?ver={{item['ht_ver']}}" alt=""></div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-wrap">
+          <div class="top-text" *ngIf="item['ht_text2'] != ''" [innerHTML]="item['ht_text2']"></div>
+          <div class="bottom-image" *ngIf="item['ht_image1'] != ''" text-center><img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt=""></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct010" *ngIf="item && item.ht_tpcode == 'hcct010'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-image" *ngIf="item['ht_image1'] != ''" text-center><img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt=""></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct019" *ngIf="item && item.ht_tpcode == 'hcst001'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text" text-center>
+            <table align="center">
+              <tr>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[1]" (click)="changeAmPmUp(1)">
+                    <ion-icon name="arrow-up"></ion-icon>
+                  </button>
+                </td>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[1]" (click)="changeHourUp(1)">
+                    <ion-icon name="arrow-up"></ion-icon>
+                  </button>
+                </td>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[1]" (click)="changeMinUp(1)">
+                    <ion-icon name="arrow-up"></ion-icon>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td text-center>
+                  <ion-label text-center class="time-input" [innerHTML]="pgConfig.textAmPm[dtPg.resultUcSleepTime[1].ampm]"></ion-label>
+                </td>
+                <td text-center>
+                  <ion-label text-center class="time-input" [innerHTML]="pgConfig.textHour[dtPg.resultUcSleepTime[1].hour]"></ion-label>
+                </td>
+                <td text-center>
+                  <ion-label text-center class="time-input" [innerHTML]="pgConfig.textMin[dtPg.resultUcSleepTime[1].min]"></ion-label>
+                </td>
+              </tr>
+              <tr>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[1]" (click)="changeAmPmDown(1)">
+                    <ion-icon name="arrow-down"></ion-icon>
+                  </button>
+                </td>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[1]" (click)="changeHourDown(1)">
+                    <ion-icon name="arrow-down"></ion-icon>
+                  </button>
+                </td>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[1]" (click)="changeMinDown(1)">
+                    <ion-icon name="arrow-down"></ion-icon>
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="bottom-box">
+          <div text-center><button ion-button [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[1]" (click)="sendUcSleepTime(1)">제출하기</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct019" *ngIf="item && item.ht_tpcode == 'hcst002'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text" text-center>
+            <table align="center">
+              <tr>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[2]" (click)="changeAmPmUp(2)">
+                    <ion-icon name="arrow-up"></ion-icon>
+                  </button>
+                </td>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[2]" (click)="changeHourUp(2)">
+                    <ion-icon name="arrow-up"></ion-icon>
+                  </button>
+                </td>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[2]" (click)="changeMinUp(2)">
+                    <ion-icon name="arrow-up"></ion-icon>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td text-center>
+                  <ion-label text-center class="time-input" [innerHTML]="pgConfig.textAmPm[dtPg.resultUcSleepTime[2].ampm]"></ion-label>
+                </td>
+                <td text-center>
+                  <ion-label text-center class="time-input" [innerHTML]="pgConfig.textHour[dtPg.resultUcSleepTime[2].hour]"></ion-label>
+                </td>
+                <td text-center>
+                  <ion-label text-center class="time-input" [innerHTML]="pgConfig.textMin[dtPg.resultUcSleepTime[2].min]"></ion-label>
+                </td>
+              </tr>
+              <tr>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[2]" (click)="changeAmPmDown(2)">
+                    <ion-icon name="arrow-down"></ion-icon>
+                  </button>
+                </td>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[2]" (click)="changeHourDown(2)">
+                    <ion-icon name="arrow-down"></ion-icon>
+                  </button>
+                </td>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[2]" (click)="changeMinDown(2)">
+                    <ion-icon name="arrow-down"></ion-icon>
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="bottom-box">
+          <div text-center><button ion-button [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[2]" (click)="sendUcSleepTime(2)">제출하기</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct019" *ngIf="item && item.ht_tpcode == 'hcst003'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text" text-center>
+            <table align="center">
+              <tr>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" disabled>
+                    <ion-icon name="arrow-up"></ion-icon>
+                  </button>
+                </td>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[3]" (click)="changeHourUp(3)">
+                    <ion-icon name="arrow-up"></ion-icon>
+                  </button>
+                </td>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[3]" (click)="changeMinUp(3)">
+                    <ion-icon name="arrow-up"></ion-icon>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td text-center>
+                  <ion-label text-center class="time-input" [innerHTML]="pgConfig.textAmPm[dtPg.resultUcSleepTime[3].ampm]"></ion-label>
+                </td>
+                <td text-center>
+                  <ion-label text-center class="time-input" [innerHTML]="pgConfig.textHour[dtPg.resultUcSleepTime[3].hour]"></ion-label>
+                </td>
+                <td text-center>
+                  <ion-label text-center class="time-input" [innerHTML]="pgConfig.textMin[dtPg.resultUcSleepTime[3].min]"></ion-label>
+                </td>
+              </tr>
+              <tr>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" disabled>
+                    <ion-icon name="arrow-down"></ion-icon>
+                  </button>
+                </td>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[3]" (click)="changeHourDown(3)">
+                    <ion-icon name="arrow-down"></ion-icon>
+                  </button>
+                </td>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[3]" (click)="changeMinDown(3)">
+                    <ion-icon name="arrow-down"></ion-icon>
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="bottom-box">
+          <div text-center><button ion-button [disabled]="pgConfig.isTodaySleepRating || dtPg.isUcSleepTime[3]" (click)="sendUcSleepTime(3)">제출하기</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct019" *ngIf="item && item.ht_tpcode == 'hcst004'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text" text-center>
+            <table align="center">
+              <tr>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating" (click)="changeWakeHourUp()">
+                    <ion-icon name="arrow-up"></ion-icon>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td text-center>
+                  <ion-label text-center class="time-input" [innerHTML]="pgConfig.textHour[dtPg.resultUcWakeTime.hour]"></ion-label>
+                </td>
+              </tr>
+              <tr>
+                <td text-center>
+                  <button ion-button text-center class="time-btn" [disabled]="pgConfig.isTodaySleepRating" (click)="changeWakeHourDown()">
+                    <ion-icon name="arrow-down"></ion-icon>
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="bottom-box">
+          <div text-center><button ion-button [disabled]="pgConfig.isTodaySleepRating" (click)="sendTodaySleepRating()">제출하기</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct017" *ngIf="item && item.ht_tpcode == 'hcct017'">
+    <div class="container">
+      <canvas #lineCanvas></canvas>
+    </div>
+  </div>
+
+  <div class="hcct014-1" *ngIf="item && item.ht_tpcode == 'hcst013'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text" text-center>
+            <table width="100%">
+              <tr>
+                <td width="70%" valign="top">
+                  <table width="100%">
+                    <tr>
+                      <td colspan="3" text-center>
+                        <img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt="">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td text-right height="35"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput13 || dtPg.resultUcInput13[1] != -1" (click)="sendSelectPick13(1)"><span [innerHTML]="dtPg.textUcInput1[1]"></span></button></td>
+                      <td text-center height="35"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput13 || dtPg.resultUcInput13[2] != -1" (click)="sendSelectPick13(2)"><span [innerHTML]="dtPg.textUcInput1[2]"></span></button></td>
+                      <td text-left height="35"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput13 || dtPg.resultUcInput13[3] != -1" (click)="sendSelectPick13(3)"><span [innerHTML]="dtPg.textUcInput1[3]"></span></button></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" text-center>
+                        <img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image2']}}?ver={{item['ht_ver']}}" alt="">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td text-right height="35"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput13 || dtPg.resultUcInput13[4] != -1" (click)="sendSelectPick13(4)"><span [innerHTML]="dtPg.textUcInput1[4]"></span></button></td>
+                      <td text-center height="35"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput13 || dtPg.resultUcInput13[5] != -1" (click)="sendSelectPick13(5)"><span [innerHTML]="dtPg.textUcInput1[5]"></span></button></td>
+                      <td text-left height="35"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput13 || dtPg.resultUcInput13[6] != -1" (click)="sendSelectPick13(6)"><span [innerHTML]="dtPg.textUcInput1[6]"></span></button></td>
+                    </tr>
+                  </table>
+                </td>
+                <td width="30%" valign="top" text-center style="border:1px solid #cccccc;background: #efefef;">
+                    <div><b>재준씨의 할 일 목록</b></div>
+                    <div><button ion-button class="select_btn" [disabled]="dtPg.isUcInput13" *ngIf="dtPg.resultUcInput13[1] != -1" (click)="sendSelectPick13(1)"><span [innerHTML]="dtPg.textUcInput1[1]"></span></button></div>
+                    <div><button ion-button class="select_btn" [disabled]="dtPg.isUcInput13" *ngIf="dtPg.resultUcInput13[2] != -1" (click)="sendSelectPick13(2)"><span [innerHTML]="dtPg.textUcInput1[2]"></span></button></div>
+                    <div><button ion-button class="select_btn" [disabled]="dtPg.isUcInput13" *ngIf="dtPg.resultUcInput13[3] != -1" (click)="sendSelectPick13(3)"><span [innerHTML]="dtPg.textUcInput1[3]"></span></button></div>
+                    <div><button ion-button class="select_btn" [disabled]="dtPg.isUcInput13" *ngIf="dtPg.resultUcInput13[4] != -1" (click)="sendSelectPick13(4)"><span [innerHTML]="dtPg.textUcInput1[4]"></span></button></div>
+                    <div><button ion-button class="select_btn" [disabled]="dtPg.isUcInput13" *ngIf="dtPg.resultUcInput13[5] != -1" (click)="sendSelectPick13(5)"><span [innerHTML]="dtPg.textUcInput1[5]"></span></button></div>
+                    <div><button ion-button class="select_btn" [disabled]="dtPg.isUcInput13" *ngIf="dtPg.resultUcInput13[6] != -1" (click)="sendSelectPick13(6)"><span [innerHTML]="dtPg.textUcInput1[6]"></span></button></div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+            <div text-center><button ion-button [disabled]="dtPg.isUcInput13" (click)="sendUcInput13()">제출하기</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct014-1" *ngIf="item && item.ht_tpcode == 'hcst014'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%">
+              <tr>
+                <td width="50%">
+                  <img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt="">
+                </td>
+                <td width="50%" text-center>
+                  <div class="strong round_line" style="width:150px; margin:2px auto;" *ngIf="dtPg.resultUcInput13[1] != -1"><span [innerHTML]="dtPg.textUcInput1[1]"></span></div>
+                  <div class="strong round_line" style="width:150px; margin:2px auto;" *ngIf="dtPg.resultUcInput13[2] != -1"><span [innerHTML]="dtPg.textUcInput1[2]"></span></div>
+                  <div class="strong round_line" style="width:150px; margin:2px auto;" *ngIf="dtPg.resultUcInput13[3] != -1"><span [innerHTML]="dtPg.textUcInput1[3]"></span></div>
+                  <div class="strong round_line" style="width:150px; margin:2px auto;" *ngIf="dtPg.resultUcInput13[4] != -1"><span [innerHTML]="dtPg.textUcInput1[4]"></span></div>
+                  <div class="strong round_line" style="width:150px; margin:2px auto;" *ngIf="dtPg.resultUcInput13[5] != -1"><span [innerHTML]="dtPg.textUcInput1[5]"></span></div>
+                  <div class="strong round_line" style="width:150px; margin:2px auto;" *ngIf="dtPg.resultUcInput13[6] != -1"><span [innerHTML]="dtPg.textUcInput1[6]"></span></div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct014-1" *ngIf="item && item.ht_tpcode == 'hcst016'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%">
+              <tr>
+                <td width="30%" text-center valign="top" height="150" style="border:1px solid #cccccc;">
+                  <div><b>항목 선택</b></div>
+                  <div *ngIf="dtPg.resultUcInput13[1] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput16 == true || dtPg.resultUcInput16[1] != -1" (click)="sendSelectPick16(1)"><span *ngIf="dtPg.resultUcInput13[1] != -1" [innerHTML]="dtPg.textUcInput1[1]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[2] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput16 == true || dtPg.resultUcInput16[2] != -1" (click)="sendSelectPick16(2)"><span *ngIf="dtPg.resultUcInput13[2] != -1" [innerHTML]="dtPg.textUcInput1[2]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[3] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput16 == true || dtPg.resultUcInput16[3] != -1" (click)="sendSelectPick16(3)"><span *ngIf="dtPg.resultUcInput13[3] != -1" [innerHTML]="dtPg.textUcInput1[3]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[4] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput16 == true || dtPg.resultUcInput16[4] != -1" (click)="sendSelectPick16(4)"><span *ngIf="dtPg.resultUcInput13[4] != -1" [innerHTML]="dtPg.textUcInput1[4]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[5] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput16 == true || dtPg.resultUcInput16[5] != -1" (click)="sendSelectPick16(5)"><span *ngIf="dtPg.resultUcInput13[5] != -1" [innerHTML]="dtPg.textUcInput1[5]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[6] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput16 == true || dtPg.resultUcInput16[6] != -1" (click)="sendSelectPick16(6)"><span *ngIf="dtPg.resultUcInput13[6] != -1" [innerHTML]="dtPg.textUcInput1[6]"></span></button></div>
+                </td>
+                <td width="70%">
+                  <table width="100%">
+                    <tr>
+                      <td width="15" rowspan="5" text-center style="border:1px solid #cccccc;"><ion-icon name="arrow-round-up"></ion-icon><br>급<br>한<br>일</td>
+                      <td width="50%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>급히 해야 할 일</b></td>
+                      <td width="50%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>급히 하고 싶은 일</b></td>
+                    </tr>
+                    <tr>
+                      <td width="50%" height="50" text-center style="border:1px solid #cccccc;background: #f5f5f5;">
+                        <div *ngIf="dtPg.resultUcInput16[1] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput16" (click)="sendSelectPick16(1)"><span [innerHTML]="dtPg.textUcInput1[1]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput16[2] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput16" (click)="sendSelectPick16(2)"><span [innerHTML]="dtPg.textUcInput1[2]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput16[3] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput16" (click)="sendSelectPick16(3)"><span [innerHTML]="dtPg.textUcInput1[3]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput16[4] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput16" (click)="sendSelectPick16(4)"><span [innerHTML]="dtPg.textUcInput1[4]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput16[5] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput16" (click)="sendSelectPick16(5)"><span [innerHTML]="dtPg.textUcInput1[5]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput16[6] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput16" (click)="sendSelectPick16(6)"><span [innerHTML]="dtPg.textUcInput1[6]"></span></button></div>
+                      </td>
+                      <td width="50%" height="50" text-center style="border:1px solid #cccccc;">
+                        &nbsp;
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="50%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>급하지 않지만<br> 해야 할 일</b></td>
+                      <td width="50%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>급하지 않지만<br> 하고 싶은 일</b></td>
+                    </tr>
+                    <tr>
+                      <td width="50%" height="50" text-center style="border:1px solid #cccccc;">
+                         &nbsp;
+                      </td>
+                      <td width="50%" height="50" text-center style="border:1px solid #cccccc;">
+                         &nbsp;
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" width="100%" height="25" text-center style="border:1px solid #cccccc;">
+                        하고 싶은 일 <ion-icon name="arrow-round-forward"></ion-icon>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+            <div text-center><button ion-button [disabled]="dtPg.isUcInput16" (click)="sendUcInput16()">제출하기</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+  <div class="hcct014-1" *ngIf="item && item.ht_tpcode == 'hcst017'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%">
+              <tr>
+                <td width="30%" text-center valign="top" height="150" style="border:1px solid #cccccc;">
+                  <div><b>항목 선택</b></div>
+                  <div *ngIf="dtPg.resultUcInput13[1] != -1 && dtPg.resultUcInput16[1] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput17 == true || dtPg.resultUcInput17[1] != -1" (click)="sendSelectPick17(1)"><span *ngIf="dtPg.resultUcInput13[1] != -1" [innerHTML]="dtPg.textUcInput1[1]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[2] != -1 && dtPg.resultUcInput16[2] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput17 == true || dtPg.resultUcInput17[2] != -1" (click)="sendSelectPick17(2)"><span *ngIf="dtPg.resultUcInput13[2] != -1" [innerHTML]="dtPg.textUcInput1[2]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[3] != -1 && dtPg.resultUcInput16[3] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput17 == true || dtPg.resultUcInput17[3] != -1" (click)="sendSelectPick17(3)"><span *ngIf="dtPg.resultUcInput13[3] != -1" [innerHTML]="dtPg.textUcInput1[3]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[4] != -1 && dtPg.resultUcInput16[4] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput17 == true || dtPg.resultUcInput17[4] != -1" (click)="sendSelectPick17(4)"><span *ngIf="dtPg.resultUcInput13[4] != -1" [innerHTML]="dtPg.textUcInput1[4]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[5] != -1 && dtPg.resultUcInput16[5] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput17 == true || dtPg.resultUcInput17[5] != -1" (click)="sendSelectPick17(5)"><span *ngIf="dtPg.resultUcInput13[5] != -1" [innerHTML]="dtPg.textUcInput1[5]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[6] != -1 && dtPg.resultUcInput16[6] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput17 == true || dtPg.resultUcInput17[6] != -1" (click)="sendSelectPick17(6)"><span *ngIf="dtPg.resultUcInput13[6] != -1" [innerHTML]="dtPg.textUcInput1[6]"></span></button></div>
+                </td>
+                <td width="70%">
+                  <table width="100%">
+                    <tr>
+                      <td width="15" rowspan="5" text-center style="border:1px solid #cccccc;"><ion-icon name="arrow-round-up"></ion-icon><br>급<br>한<br>일</td>
+                      <td width="50%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>급히 해야 할 일</b></td>
+                      <td width="50%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>급히 하고 싶은 일</b></td>
+                    </tr>
+                    <tr>
+                      <td width="50%" height="50" text-center style="border:1px solid #cccccc;">
+                        <div *ngIf="dtPg.resultUcInput16[1] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[1]"></div>
+                        <div *ngIf="dtPg.resultUcInput16[2] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[2]"></div>
+                        <div *ngIf="dtPg.resultUcInput16[3] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[3]"></div>
+                        <div *ngIf="dtPg.resultUcInput16[4] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[4]"></div>
+                        <div *ngIf="dtPg.resultUcInput16[5] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[5]"></div>
+                        <div *ngIf="dtPg.resultUcInput16[6] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[6]"></div>
+                      </td>
+                      <td width="50%" height="50" text-center style="border:1px solid #cccccc;background: #f5f5f5;">
+                        <div *ngIf="dtPg.resultUcInput17[1] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput17" (click)="sendSelectPick17(1)"><span [innerHTML]="dtPg.textUcInput1[1]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput17[2] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput17" (click)="sendSelectPick17(2)"><span [innerHTML]="dtPg.textUcInput1[2]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput17[3] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput17" (click)="sendSelectPick17(3)"><span [innerHTML]="dtPg.textUcInput1[3]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput17[4] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput17" (click)="sendSelectPick17(4)"><span [innerHTML]="dtPg.textUcInput1[4]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput17[5] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput17" (click)="sendSelectPick17(5)"><span [innerHTML]="dtPg.textUcInput1[5]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput17[6] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput17" (click)="sendSelectPick17(6)"><span [innerHTML]="dtPg.textUcInput1[6]"></span></button></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="50%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>급하지 않지만<br> 해야 할 일</b></td>
+                      <td width="50%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>급하지 않지만<br> 하고 싶은 일</b></td>
+                    </tr>
+                    <tr>
+                      <td width="50%" height="50" text-center style="border:1px solid #cccccc;">
+                         &nbsp;
+                      </td>
+                      <td width="50%" height="50" text-center style="border:1px solid #cccccc;">
+                         &nbsp;
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" width="100%" height="25" text-center style="border:1px solid #cccccc;">
+                        하고 싶은 일 <ion-icon name="arrow-round-forward"></ion-icon>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+            <div text-center><button ion-button [disabled]="dtPg.isUcInput17" (click)="sendUcInput17()">제출하기</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+  <div class="hcct014-1" *ngIf="item && item.ht_tpcode == 'hcst018'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%">
+              <tr>
+                <td width="30%" text-center valign="top" height="150" style="border:1px solid #cccccc;">
+                  <div><b>항목 선택</b></div>
+                  <div *ngIf="dtPg.resultUcInput13[1] != -1 && dtPg.resultUcInput16[1] == -1 && dtPg.resultUcInput17[1] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput18 == true || dtPg.resultUcInput18[1] != -1" (click)="sendSelectPick18(1)"><span *ngIf="dtPg.resultUcInput13[1] != -1" [innerHTML]="dtPg.textUcInput1[1]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[2] != -1 && dtPg.resultUcInput16[2] == -1 && dtPg.resultUcInput17[2] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput18 == true || dtPg.resultUcInput18[2] != -1" (click)="sendSelectPick18(2)"><span *ngIf="dtPg.resultUcInput13[2] != -1" [innerHTML]="dtPg.textUcInput1[2]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[3] != -1 && dtPg.resultUcInput16[3] == -1 && dtPg.resultUcInput17[3] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput18 == true || dtPg.resultUcInput18[3] != -1" (click)="sendSelectPick18(3)"><span *ngIf="dtPg.resultUcInput13[3] != -1" [innerHTML]="dtPg.textUcInput1[3]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[4] != -1 && dtPg.resultUcInput16[4] == -1 && dtPg.resultUcInput17[4] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput18 == true || dtPg.resultUcInput18[4] != -1" (click)="sendSelectPick18(4)"><span *ngIf="dtPg.resultUcInput13[4] != -1" [innerHTML]="dtPg.textUcInput1[4]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[5] != -1 && dtPg.resultUcInput16[5] == -1 && dtPg.resultUcInput17[5] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput18 == true || dtPg.resultUcInput18[5] != -1" (click)="sendSelectPick18(5)"><span *ngIf="dtPg.resultUcInput13[5] != -1" [innerHTML]="dtPg.textUcInput1[5]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[6] != -1 && dtPg.resultUcInput16[6] == -1 && dtPg.resultUcInput17[6] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput18 == true || dtPg.resultUcInput18[6] != -1" (click)="sendSelectPick18(6)"><span *ngIf="dtPg.resultUcInput13[6] != -1" [innerHTML]="dtPg.textUcInput1[6]"></span></button></div>
+                </td>
+                <td width="70%">
+                  <table width="100%">
+                    <tr>
+                      <td width="15" rowspan="5" text-center style="border:1px solid #cccccc;"><ion-icon name="arrow-round-up"></ion-icon><br>급<br>한<br>일</td>
+                      <td width="50%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>급히 해야 할 일</b></td>
+                      <td width="50%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>급히 하고 싶은 일</b></td>
+                    </tr>
+                    <tr>
+                      <td width="50%" height="50" text-center style="border:1px solid #cccccc;">
+                        <div *ngIf="dtPg.resultUcInput16[1] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[1]"></div>
+                        <div *ngIf="dtPg.resultUcInput16[2] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[2]"></div>
+                        <div *ngIf="dtPg.resultUcInput16[3] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[3]"></div>
+                        <div *ngIf="dtPg.resultUcInput16[4] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[4]"></div>
+                        <div *ngIf="dtPg.resultUcInput16[5] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[5]"></div>
+                        <div *ngIf="dtPg.resultUcInput16[6] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[6]"></div>
+                      </td>
+                      <td width="50%" height="50" text-center style="border:1px solid #cccccc;">
+                        <div *ngIf="dtPg.resultUcInput17[1] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[1]"></div>
+                        <div *ngIf="dtPg.resultUcInput17[2] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[2]"></div>
+                        <div *ngIf="dtPg.resultUcInput17[3] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[3]"></div>
+                        <div *ngIf="dtPg.resultUcInput17[4] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[4]"></div>
+                        <div *ngIf="dtPg.resultUcInput17[5] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[5]"></div>
+                        <div *ngIf="dtPg.resultUcInput17[6] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[6]"></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="50%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>급하지 않지만<br> 해야 할 일</b></td>
+                      <td width="50%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>급하지 않지만<br> 하고 싶은 일</b></td>
+                    </tr>
+                    <tr>
+                      <td width="50%" height="50" text-center style="border:1px solid #cccccc;background: #f5f5f5;">
+                        <div *ngIf="dtPg.resultUcInput18[1] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput18" (click)="sendSelectPick18(1)"><span [innerHTML]="dtPg.textUcInput1[1]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput18[2] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput18" (click)="sendSelectPick18(2)"><span [innerHTML]="dtPg.textUcInput1[2]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput18[3] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput18" (click)="sendSelectPick18(3)"><span [innerHTML]="dtPg.textUcInput1[3]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput18[4] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput18" (click)="sendSelectPick18(4)"><span [innerHTML]="dtPg.textUcInput1[4]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput18[5] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput18" (click)="sendSelectPick18(5)"><span [innerHTML]="dtPg.textUcInput1[5]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput18[6] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput18" (click)="sendSelectPick18(6)"><span [innerHTML]="dtPg.textUcInput1[6]"></span></button></div>
+                      </td>
+                      <td width="50%" height="50" text-center style="border:1px solid #cccccc;">
+                         &nbsp;
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" width="100%" height="25" text-center style="border:1px solid #cccccc;">
+                        하고 싶은 일 <ion-icon name="arrow-round-forward"></ion-icon>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+            <div text-center><button ion-button [disabled]="dtPg.isUcInput18" (click)="sendUcInput18()">제출하기</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct014-1" *ngIf="item && item.ht_tpcode == 'hcst019'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%">
+              <tr>
+                <td width="30%" text-center valign="top" height="150" style="border:1px solid #cccccc;">
+                  <div><b>항목 선택</b></div>
+                  <div *ngIf="dtPg.resultUcInput13[1] != -1 && dtPg.resultUcInput16[1] == -1 && dtPg.resultUcInput17[1] == -1 && dtPg.resultUcInput18[1] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput19 == true || dtPg.resultUcInput19[1] != -1" (click)="sendSelectPick19(1)"><span *ngIf="dtPg.resultUcInput13[1] != -1" [innerHTML]="dtPg.textUcInput1[1]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[2] != -1 && dtPg.resultUcInput16[2] == -1 && dtPg.resultUcInput17[2] == -1 && dtPg.resultUcInput18[2] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput19 == true || dtPg.resultUcInput19[2] != -1" (click)="sendSelectPick19(2)"><span *ngIf="dtPg.resultUcInput13[2] != -1" [innerHTML]="dtPg.textUcInput1[2]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[3] != -1 && dtPg.resultUcInput16[3] == -1 && dtPg.resultUcInput17[3] == -1 && dtPg.resultUcInput18[3] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput19 == true || dtPg.resultUcInput19[3] != -1" (click)="sendSelectPick19(3)"><span *ngIf="dtPg.resultUcInput13[3] != -1" [innerHTML]="dtPg.textUcInput1[3]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[4] != -1 && dtPg.resultUcInput16[4] == -1 && dtPg.resultUcInput17[4] == -1 && dtPg.resultUcInput18[4] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput19 == true || dtPg.resultUcInput19[4] != -1" (click)="sendSelectPick19(4)"><span *ngIf="dtPg.resultUcInput13[4] != -1" [innerHTML]="dtPg.textUcInput1[4]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[5] != -1 && dtPg.resultUcInput16[5] == -1 && dtPg.resultUcInput17[5] == -1 && dtPg.resultUcInput18[5] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput19 == true || dtPg.resultUcInput19[5] != -1" (click)="sendSelectPick19(5)"><span *ngIf="dtPg.resultUcInput13[5] != -1" [innerHTML]="dtPg.textUcInput1[5]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[6] != -1 && dtPg.resultUcInput16[6] == -1 && dtPg.resultUcInput17[6] == -1 && dtPg.resultUcInput18[6] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput19 == true || dtPg.resultUcInput19[6] != -1" (click)="sendSelectPick19(6)"><span *ngIf="dtPg.resultUcInput13[6] != -1" [innerHTML]="dtPg.textUcInput1[6]"></span></button></div>
+                </td>
+                <td width="70%">
+                  <table width="100%">
+                    <tr>
+                      <td width="15" rowspan="5" text-center style="border:1px solid #cccccc;"><ion-icon name="arrow-round-up"></ion-icon><br>급<br>한<br>일</td>
+                      <td width="50%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>급히 해야 할 일</b></td>
+                      <td width="50%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>급히 하고 싶은 일</b></td>
+                    </tr>
+                    <tr>
+                      <td width="50%" height="50" text-center style="border:1px solid #cccccc;">
+                        <div *ngIf="dtPg.resultUcInput16[1] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[1]"></div>
+                        <div *ngIf="dtPg.resultUcInput16[2] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[2]"></div>
+                        <div *ngIf="dtPg.resultUcInput16[3] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[3]"></div>
+                        <div *ngIf="dtPg.resultUcInput16[4] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[4]"></div>
+                        <div *ngIf="dtPg.resultUcInput16[5] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[5]"></div>
+                        <div *ngIf="dtPg.resultUcInput16[6] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[6]"></div>
+                      </td>
+                      <td width="50%" height="50" text-center style="border:1px solid #cccccc;">
+                        <div *ngIf="dtPg.resultUcInput17[1] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[1]"></div>
+                        <div *ngIf="dtPg.resultUcInput17[2] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[2]"></div>
+                        <div *ngIf="dtPg.resultUcInput17[3] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[3]"></div>
+                        <div *ngIf="dtPg.resultUcInput17[4] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[4]"></div>
+                        <div *ngIf="dtPg.resultUcInput17[5] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[5]"></div>
+                        <div *ngIf="dtPg.resultUcInput17[6] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[6]"></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="50%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>급하지 않지만<br> 해야 할 일</b></td>
+                      <td width="50%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>급하지 않지만<br> 하고 싶은 일</b></td>
+                    </tr>
+                    <tr>
+                      <td width="50%" height="50" text-center style="border:1px solid #cccccc;">
+                        <div *ngIf="dtPg.resultUcInput18[1] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[1]"></div>
+                        <div *ngIf="dtPg.resultUcInput18[2] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[2]"></div>
+                        <div *ngIf="dtPg.resultUcInput18[3] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[3]"></div>
+                        <div *ngIf="dtPg.resultUcInput18[4] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[4]"></div>
+                        <div *ngIf="dtPg.resultUcInput18[5] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[5]"></div>
+                        <div *ngIf="dtPg.resultUcInput18[6] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[6]"></div>
+                      </td>
+                      <td width="50%" height="50" text-center style="border:1px solid #cccccc;background: #f5f5f5;">
+                        <div *ngIf="dtPg.resultUcInput19[1] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput19" (click)="sendSelectPick19(1)"><span [innerHTML]="dtPg.textUcInput1[1]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput19[2] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput19" (click)="sendSelectPick19(2)"><span [innerHTML]="dtPg.textUcInput1[2]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput19[3] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput19" (click)="sendSelectPick19(3)"><span [innerHTML]="dtPg.textUcInput1[3]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput19[4] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput19" (click)="sendSelectPick19(4)"><span [innerHTML]="dtPg.textUcInput1[4]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput19[5] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput19" (click)="sendSelectPick19(5)"><span [innerHTML]="dtPg.textUcInput1[5]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput19[6] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput19" (click)="sendSelectPick19(6)"><span [innerHTML]="dtPg.textUcInput1[6]"></span></button></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" width="100%" height="25" text-center style="border:1px solid #cccccc;">
+                        하고 싶은 일 <ion-icon name="arrow-round-forward"></ion-icon>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+            <div text-center><button ion-button [disabled]="dtPg.isUcInput19" (click)="sendUcInput19()">제출하기</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct014-1" *ngIf="item && item.ht_tpcode == 'hcst021'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%">
+              <tr>
+                <td width="30%" text-center>
+                  <img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt="">
+                </td>
+                <td width="35%" text-center valign="top" style="border:1px solid #cccccc;background: #efefef;">
+                  <div><b>재준씨의 할 일 목록</b></div>
+                  <div *ngIf="dtPg.resultUcInput13[1] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput21 == true || dtPg.resultUcInput21[1] != -1" (click)="sendSelectPick21(1)"><span *ngIf="dtPg.resultUcInput13[1] != -1" [innerHTML]="dtPg.textUcInput1[1]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[2] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput21 == true || dtPg.resultUcInput21[2] != -1" (click)="sendSelectPick21(2)"><span *ngIf="dtPg.resultUcInput13[2] != -1" [innerHTML]="dtPg.textUcInput1[2]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[3] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput21 == true || dtPg.resultUcInput21[3] != -1" (click)="sendSelectPick21(3)"><span *ngIf="dtPg.resultUcInput13[3] != -1" [innerHTML]="dtPg.textUcInput1[3]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[4] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput21 == true || dtPg.resultUcInput21[4] != -1" (click)="sendSelectPick21(4)"><span *ngIf="dtPg.resultUcInput13[4] != -1" [innerHTML]="dtPg.textUcInput1[4]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[5] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput21 == true || dtPg.resultUcInput21[5] != -1" (click)="sendSelectPick21(5)"><span *ngIf="dtPg.resultUcInput13[5] != -1" [innerHTML]="dtPg.textUcInput1[5]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[6] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput21 == true || dtPg.resultUcInput21[6] != -1" (click)="sendSelectPick21(6)"><span *ngIf="dtPg.resultUcInput13[6] != -1" [innerHTML]="dtPg.textUcInput1[6]"></span></button></div>
+                </td>
+                <td width="5%" text-center>
+                  <ion-icon name="arrow-round-forward"></ion-icon>
+                </td>
+                <td width="30%" text-center valign="top" style="border:1px solid #cccccc;background: #efefef;">
+                  <div><b>선택한 할일 목록</b></div>
+                  <table width="100%">
+                    <tr>
+                      <td text-center valign="top">
+                        <div *ngIf="dtPg.resultUcInput21[1] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput21" (click)="sendSelectPick21(1)"><span [innerHTML]="dtPg.textUcInput1[1]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput21[2] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput21" (click)="sendSelectPick21(2)"><span [innerHTML]="dtPg.textUcInput1[2]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput21[3] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput21" (click)="sendSelectPick21(3)"><span [innerHTML]="dtPg.textUcInput1[3]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput21[4] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput21" (click)="sendSelectPick21(4)"><span [innerHTML]="dtPg.textUcInput1[4]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput21[5] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput21" (click)="sendSelectPick21(5)"><span [innerHTML]="dtPg.textUcInput1[5]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput21[6] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput21" (click)="sendSelectPick21(6)"><span [innerHTML]="dtPg.textUcInput1[6]"></span></button></div>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+            <div text-center><button ion-button [disabled]="dtPg.isUcInput21" (click)="sendUcInput21()">제출하기</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+  <div class="hcct014-1" *ngIf="item && item.ht_tpcode == 'hcst022'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%">
+              <tr>
+                <td width="50%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>급히 해야 할 일</b></td>
+                <td width="50%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>급히 하고 싶은 일</b></td>
+              </tr>
+              <tr>
+                <td width="50%" height="50" text-center style="border:1px solid #cccccc;">
+                  <div *ngIf="dtPg.resultUcInput16[1] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[1]"></div>
+                  <div *ngIf="dtPg.resultUcInput16[2] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[2]"></div>
+                  <div *ngIf="dtPg.resultUcInput16[3] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[3]"></div>
+                  <div *ngIf="dtPg.resultUcInput16[4] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[4]"></div>
+                  <div *ngIf="dtPg.resultUcInput16[5] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[5]"></div>
+                  <div *ngIf="dtPg.resultUcInput16[6] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[6]"></div>
+                </td>
+                <td width="50%" height="50" text-center style="border:1px solid #cccccc;">
+                  <div *ngIf="dtPg.resultUcInput17[1] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[1]"></div>
+                  <div *ngIf="dtPg.resultUcInput17[2] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[2]"></div>
+                  <div *ngIf="dtPg.resultUcInput17[3] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[3]"></div>
+                  <div *ngIf="dtPg.resultUcInput17[4] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[4]"></div>
+                  <div *ngIf="dtPg.resultUcInput17[5] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[5]"></div>
+                  <div *ngIf="dtPg.resultUcInput17[6] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[6]"></div>
+                </td>
+              </tr>
+              <tr>
+                <td width="50%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>급하지 않지만<br> 해야 할 일</b></td>
+                <td width="50%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>급하지 않지만<br> 하고 싶은 일</b></td>
+              </tr>
+              <tr>
+                <td width="50%" height="50" text-center style="border:1px solid #cccccc;">
+                  <div *ngIf="dtPg.resultUcInput18[1] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[1]"></div>
+                  <div *ngIf="dtPg.resultUcInput18[2] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[2]"></div>
+                  <div *ngIf="dtPg.resultUcInput18[3] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[3]"></div>
+                  <div *ngIf="dtPg.resultUcInput18[4] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[4]"></div>
+                  <div *ngIf="dtPg.resultUcInput18[5] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[5]"></div>
+                  <div *ngIf="dtPg.resultUcInput18[6] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[6]"></div>
+                </td>
+                <td width="50%" height="50" text-center style="border:1px solid #cccccc;">
+                  <div *ngIf="dtPg.resultUcInput19[1] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[1]"></div>
+                  <div *ngIf="dtPg.resultUcInput19[2] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[2]"></div>
+                  <div *ngIf="dtPg.resultUcInput19[3] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[3]"></div>
+                  <div *ngIf="dtPg.resultUcInput19[4] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[4]"></div>
+                  <div *ngIf="dtPg.resultUcInput19[5] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[5]"></div>
+                  <div *ngIf="dtPg.resultUcInput19[6] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[6]"></div>
+                </td>
+              </tr>
+            </table>
+            <table width="100%">
+              <tr>
+                <td width="33%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>도움 요청하기</b></td>
+                <td width="33%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>거절하기</b></td>
+                <td width="33%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>하고 있는 일에<br> 집중하기</b></td>
+              </tr>
+              <tr>
+                <td width="33%" text-center style="border:1px solid #cccccc;">
+                  <div *ngIf="dtPg.resultUcInput21[1] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[1]"></div>
+                  <div *ngIf="dtPg.resultUcInput21[2] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[2]"></div>
+                  <div *ngIf="dtPg.resultUcInput21[3] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[3]"></div>
+                  <div *ngIf="dtPg.resultUcInput21[4] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[4]"></div>
+                  <div *ngIf="dtPg.resultUcInput21[5] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[5]"></div>
+                  <div *ngIf="dtPg.resultUcInput21[6] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[6]"></div>
+                </td>
+                <td width="33%" text-center style="border:1px solid #cccccc;">
+                  &nbsp;
+                </td>
+                <td width="33%" text-center style="border:1px solid #cccccc;">
+                  &nbsp;
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct014-1" *ngIf="item && item.ht_tpcode == 'hcst023'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%">
+              <tr>
+                <td width="30%" text-center>
+                  <img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt="">
+                </td>
+                <td width="35%" text-center valign="top" style="border:1px solid #cccccc;background: #efefef;">
+                  <div><b>재준씨의 할 일 목록</b></div>
+                  <div *ngIf="dtPg.resultUcInput13[1] != -1 && dtPg.resultUcInput21[1] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput23 == true || dtPg.resultUcInput23[1] != -1" (click)="sendSelectPick23(1)"><span *ngIf="dtPg.resultUcInput13[1] != -1" [innerHTML]="dtPg.textUcInput1[1]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[2] != -1 && dtPg.resultUcInput21[2] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput23 == true || dtPg.resultUcInput23[2] != -1" (click)="sendSelectPick23(2)"><span *ngIf="dtPg.resultUcInput13[2] != -1" [innerHTML]="dtPg.textUcInput1[2]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[3] != -1 && dtPg.resultUcInput21[3] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput23 == true || dtPg.resultUcInput23[3] != -1" (click)="sendSelectPick23(3)"><span *ngIf="dtPg.resultUcInput13[3] != -1" [innerHTML]="dtPg.textUcInput1[3]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[4] != -1 && dtPg.resultUcInput21[4] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput23 == true || dtPg.resultUcInput23[4] != -1" (click)="sendSelectPick23(4)"><span *ngIf="dtPg.resultUcInput13[4] != -1" [innerHTML]="dtPg.textUcInput1[4]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[5] != -1 && dtPg.resultUcInput21[5] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput23 == true || dtPg.resultUcInput23[5] != -1" (click)="sendSelectPick23(5)"><span *ngIf="dtPg.resultUcInput13[5] != -1" [innerHTML]="dtPg.textUcInput1[5]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[6] != -1 && dtPg.resultUcInput21[6] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput23 == true || dtPg.resultUcInput23[6] != -1" (click)="sendSelectPick23(6)"><span *ngIf="dtPg.resultUcInput13[6] != -1" [innerHTML]="dtPg.textUcInput1[6]"></span></button></div>
+                </td>
+                <td width="5%" text-center>
+                  <ion-icon name="arrow-round-forward"></ion-icon>
+                </td>
+                <td width="30%" text-center valign="top" style="border:1px solid #cccccc;background: #efefef;">
+                  <div><b>선택한 할일 목록</b></div>
+                  <table width="100%">
+                    <tr>
+                      <td text-center valign="top">
+                        <div *ngIf="dtPg.resultUcInput23[1] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput23" (click)="sendSelectPick23(1)"><span [innerHTML]="dtPg.textUcInput1[1]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput23[2] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput23" (click)="sendSelectPick23(2)"><span [innerHTML]="dtPg.textUcInput1[2]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput23[3] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput23" (click)="sendSelectPick23(3)"><span [innerHTML]="dtPg.textUcInput1[3]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput23[4] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput23" (click)="sendSelectPick23(4)"><span [innerHTML]="dtPg.textUcInput1[4]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput23[5] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput23" (click)="sendSelectPick23(5)"><span [innerHTML]="dtPg.textUcInput1[5]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput23[6] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput23" (click)="sendSelectPick23(6)"><span [innerHTML]="dtPg.textUcInput1[6]"></span></button></div>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+            <div text-center><button ion-button [disabled]="dtPg.isUcInput23" (click)="sendUcInput23()">제출하기</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+  <div class="hcct014-1" *ngIf="item && item.ht_tpcode == 'hcst024'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%">
+              <tr>
+                <td width="50%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>급히 해야 할 일</b></td>
+                <td width="50%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>급히 하고 싶은 일</b></td>
+              </tr>
+              <tr>
+                <td width="50%" height="50" text-center style="border:1px solid #cccccc;">
+                  <div *ngIf="dtPg.resultUcInput16[1] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[1]"></div>
+                  <div *ngIf="dtPg.resultUcInput16[2] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[2]"></div>
+                  <div *ngIf="dtPg.resultUcInput16[3] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[3]"></div>
+                  <div *ngIf="dtPg.resultUcInput16[4] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[4]"></div>
+                  <div *ngIf="dtPg.resultUcInput16[5] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[5]"></div>
+                  <div *ngIf="dtPg.resultUcInput16[6] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[6]"></div>
+                </td>
+                <td width="50%" height="50" text-center style="border:1px solid #cccccc;">
+                  <div *ngIf="dtPg.resultUcInput17[1] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[1]"></div>
+                  <div *ngIf="dtPg.resultUcInput17[2] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[2]"></div>
+                  <div *ngIf="dtPg.resultUcInput17[3] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[3]"></div>
+                  <div *ngIf="dtPg.resultUcInput17[4] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[4]"></div>
+                  <div *ngIf="dtPg.resultUcInput17[5] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[5]"></div>
+                  <div *ngIf="dtPg.resultUcInput17[6] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[6]"></div>
+                </td>
+              </tr>
+              <tr>
+                <td width="50%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>급하지 않지만<br> 해야 할 일</b></td>
+                <td width="50%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>급하지 않지만<br> 하고 싶은 일</b></td>
+              </tr>
+              <tr>
+                <td width="50%" height="50" text-center style="border:1px solid #cccccc;">
+                  <div *ngIf="dtPg.resultUcInput18[1] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[1]"></div>
+                  <div *ngIf="dtPg.resultUcInput18[2] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[2]"></div>
+                  <div *ngIf="dtPg.resultUcInput18[3] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[3]"></div>
+                  <div *ngIf="dtPg.resultUcInput18[4] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[4]"></div>
+                  <div *ngIf="dtPg.resultUcInput18[5] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[5]"></div>
+                  <div *ngIf="dtPg.resultUcInput18[6] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[6]"></div>
+                </td>
+                <td width="50%" height="50" text-center style="border:1px solid #cccccc;">
+                  <div *ngIf="dtPg.resultUcInput19[1] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[1]"></div>
+                  <div *ngIf="dtPg.resultUcInput19[2] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[2]"></div>
+                  <div *ngIf="dtPg.resultUcInput19[3] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[3]"></div>
+                  <div *ngIf="dtPg.resultUcInput19[4] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[4]"></div>
+                  <div *ngIf="dtPg.resultUcInput19[5] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[5]"></div>
+                  <div *ngIf="dtPg.resultUcInput19[6] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[6]"></div>
+                </td>
+              </tr>
+            </table>
+            <table width="100%">
+              <tr>
+                <td width="33%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>도움 요청하기</b></td>
+                <td width="33%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>거절하기</b></td>
+                <td width="33%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>하고 있는 일에<br> 집중하기</b></td>
+              </tr>
+              <tr>
+                <td width="33%" text-center style="border:1px solid #cccccc;">
+                  <div *ngIf="dtPg.resultUcInput21[1] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[1]"></div>
+                  <div *ngIf="dtPg.resultUcInput21[2] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[2]"></div>
+                  <div *ngIf="dtPg.resultUcInput21[3] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[3]"></div>
+                  <div *ngIf="dtPg.resultUcInput21[4] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[4]"></div>
+                  <div *ngIf="dtPg.resultUcInput21[5] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[5]"></div>
+                  <div *ngIf="dtPg.resultUcInput21[6] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[6]"></div>
+                </td>
+                <td width="33%" text-center style="border:1px solid #cccccc;">
+                  <div *ngIf="dtPg.resultUcInput23[1] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[1]"></div>
+                  <div *ngIf="dtPg.resultUcInput23[2] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[2]"></div>
+                  <div *ngIf="dtPg.resultUcInput23[3] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[3]"></div>
+                  <div *ngIf="dtPg.resultUcInput23[4] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[4]"></div>
+                  <div *ngIf="dtPg.resultUcInput23[5] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[5]"></div>
+                  <div *ngIf="dtPg.resultUcInput23[6] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[6]"></div>
+                </td>
+                <td width="33%" text-center>
+                  &nbsp;
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct014-1" *ngIf="item && item.ht_tpcode == 'hcst025'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%">
+              <tr>
+                <td width="30%" text-center>
+                  <img src="{{item['ht_base_image']}}/ht2/{{item['ht_mcode']}}/{{item.ht_pcode}}/{{item['ht_image1']}}?ver={{item['ht_ver']}}" alt="">
+                </td>
+                <td width="35%" text-center valign="top" style="border:1px solid #cccccc;background: #efefef;">
+                  <div><b>재준씨의 할 일 목록</b></div>
+                  <div *ngIf="dtPg.resultUcInput13[1] != -1 && dtPg.resultUcInput21[1] == -1 && dtPg.resultUcInput23[1] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput25 == true || dtPg.resultUcInput25[1] != -1" (click)="sendSelectPick25(1)"><span *ngIf="dtPg.resultUcInput13[1] != -1" [innerHTML]="dtPg.textUcInput1[1]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[2] != -1 && dtPg.resultUcInput21[2] == -1 && dtPg.resultUcInput23[2] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput25 == true || dtPg.resultUcInput25[2] != -1" (click)="sendSelectPick25(2)"><span *ngIf="dtPg.resultUcInput13[2] != -1" [innerHTML]="dtPg.textUcInput1[2]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[3] != -1 && dtPg.resultUcInput21[3] == -1 && dtPg.resultUcInput23[3] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput25 == true || dtPg.resultUcInput25[3] != -1" (click)="sendSelectPick25(3)"><span *ngIf="dtPg.resultUcInput13[3] != -1" [innerHTML]="dtPg.textUcInput1[3]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[4] != -1 && dtPg.resultUcInput21[4] == -1 && dtPg.resultUcInput23[4] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput25 == true || dtPg.resultUcInput25[4] != -1" (click)="sendSelectPick25(4)"><span *ngIf="dtPg.resultUcInput13[4] != -1" [innerHTML]="dtPg.textUcInput1[4]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[5] != -1 && dtPg.resultUcInput21[5] == -1 && dtPg.resultUcInput23[5] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput25 == true || dtPg.resultUcInput25[5] != -1" (click)="sendSelectPick25(5)"><span *ngIf="dtPg.resultUcInput13[5] != -1" [innerHTML]="dtPg.textUcInput1[5]"></span></button></div>
+                  <div *ngIf="dtPg.resultUcInput13[6] != -1 && dtPg.resultUcInput21[6] == -1 && dtPg.resultUcInput23[6] == -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput25 == true || dtPg.resultUcInput25[6] != -1" (click)="sendSelectPick25(6)"><span *ngIf="dtPg.resultUcInput13[6] != -1" [innerHTML]="dtPg.textUcInput1[6]"></span></button></div>
+                </td>
+                <td width="5%" text-center>
+                  <ion-icon name="arrow-round-forward"></ion-icon>
+                </td>
+                <td width="30%" text-center valign="top" style="border:1px solid #cccccc;background: #efefef;">
+                  <div><b>선택한 할일 목록</b></div>
+                  <table width="100%">
+                    <tr>
+                      <td text-center valign="top">
+                        <div *ngIf="dtPg.resultUcInput25[1] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput25" (click)="sendSelectPick25(1)"><span [innerHTML]="dtPg.textUcInput1[1]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput25[2] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput25" (click)="sendSelectPick25(2)"><span [innerHTML]="dtPg.textUcInput1[2]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput25[3] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput25" (click)="sendSelectPick25(3)"><span [innerHTML]="dtPg.textUcInput1[3]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput25[4] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput25" (click)="sendSelectPick25(4)"><span [innerHTML]="dtPg.textUcInput1[4]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput25[5] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput25" (click)="sendSelectPick25(5)"><span [innerHTML]="dtPg.textUcInput1[5]"></span></button></div>
+                        <div *ngIf="dtPg.resultUcInput25[6] != -1"><button ion-button class="select_btn" [disabled]="dtPg.isUcInput25" (click)="sendSelectPick25(6)"><span [innerHTML]="dtPg.textUcInput1[6]"></span></button></div>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+            <div text-center><button ion-button [disabled]="dtPg.isUcInput25" (click)="sendUcInput25()">제출하기</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct014-1" *ngIf="item && item.ht_tpcode == 'hcst026'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%">
+              <tr>
+                <td width="50%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>급히 해야 할 일</b></td>
+                <td width="50%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>급히 하고 싶은 일</b></td>
+              </tr>
+              <tr>
+                <td width="50%" height="50" text-center style="border:1px solid #cccccc;">
+                  <div *ngIf="dtPg.resultUcInput16[1] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[1]"></div>
+                  <div *ngIf="dtPg.resultUcInput16[2] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[2]"></div>
+                  <div *ngIf="dtPg.resultUcInput16[3] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[3]"></div>
+                  <div *ngIf="dtPg.resultUcInput16[4] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[4]"></div>
+                  <div *ngIf="dtPg.resultUcInput16[5] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[5]"></div>
+                  <div *ngIf="dtPg.resultUcInput16[6] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[6]"></div>
+                </td>
+                <td width="50%" height="50" text-center style="border:1px solid #cccccc;">
+                  <div *ngIf="dtPg.resultUcInput17[1] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[1]"></div>
+                  <div *ngIf="dtPg.resultUcInput17[2] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[2]"></div>
+                  <div *ngIf="dtPg.resultUcInput17[3] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[3]"></div>
+                  <div *ngIf="dtPg.resultUcInput17[4] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[4]"></div>
+                  <div *ngIf="dtPg.resultUcInput17[5] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[5]"></div>
+                  <div *ngIf="dtPg.resultUcInput17[6] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[6]"></div>
+                </td>
+              </tr>
+              <tr>
+                <td width="50%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>급하지 않지만<br> 해야 할 일</b></td>
+                <td width="50%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>급하지 않지만<br> 하고 싶은 일</b></td>
+              </tr>
+              <tr>
+                <td width="50%" height="50" text-center style="border:1px solid #cccccc;">
+                  <div *ngIf="dtPg.resultUcInput18[1] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[1]"></div>
+                  <div *ngIf="dtPg.resultUcInput18[2] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[2]"></div>
+                  <div *ngIf="dtPg.resultUcInput18[3] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[3]"></div>
+                  <div *ngIf="dtPg.resultUcInput18[4] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[4]"></div>
+                  <div *ngIf="dtPg.resultUcInput18[5] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[5]"></div>
+                  <div *ngIf="dtPg.resultUcInput18[6] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[6]"></div>
+                </td>
+                <td width="50%" height="50" text-center style="border:1px solid #cccccc;">
+                  <div *ngIf="dtPg.resultUcInput19[1] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[1]"></div>
+                  <div *ngIf="dtPg.resultUcInput19[2] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[2]"></div>
+                  <div *ngIf="dtPg.resultUcInput19[3] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[3]"></div>
+                  <div *ngIf="dtPg.resultUcInput19[4] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[4]"></div>
+                  <div *ngIf="dtPg.resultUcInput19[5] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[5]"></div>
+                  <div *ngIf="dtPg.resultUcInput19[6] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[6]"></div>
+                </td>
+              </tr>
+            </table>
+            <table width="100%">
+              <tr>
+                <td width="33%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>도움 요청하기</b></td>
+                <td width="33%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>거절하기</b></td>
+                <td width="33%" text-center style="border:1px solid #cccccc;background: #efefef;"><b>하고 있는 일에<br> 집중하기</b></td>
+              </tr>
+              <tr>
+                <td width="33%" text-center style="border:1px solid #cccccc;">
+                  <div *ngIf="dtPg.resultUcInput21[1] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[1]"></div>
+                  <div *ngIf="dtPg.resultUcInput21[2] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[2]"></div>
+                  <div *ngIf="dtPg.resultUcInput21[3] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[3]"></div>
+                  <div *ngIf="dtPg.resultUcInput21[4] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[4]"></div>
+                  <div *ngIf="dtPg.resultUcInput21[5] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[5]"></div>
+                  <div *ngIf="dtPg.resultUcInput21[6] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[6]"></div>
+                </td>
+                <td width="33%" text-center style="border:1px solid #cccccc;">
+                  <div *ngIf="dtPg.resultUcInput23[1] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[1]"></div>
+                  <div *ngIf="dtPg.resultUcInput23[2] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[2]"></div>
+                  <div *ngIf="dtPg.resultUcInput23[3] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[3]"></div>
+                  <div *ngIf="dtPg.resultUcInput23[4] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[4]"></div>
+                  <div *ngIf="dtPg.resultUcInput23[5] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[5]"></div>
+                  <div *ngIf="dtPg.resultUcInput23[6] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[6]"></div>
+                </td>
+                <td width="33%" text-center style="border:1px solid #cccccc;">
+                  <div *ngIf="dtPg.resultUcInput25[1] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[1]"></div>
+                  <div *ngIf="dtPg.resultUcInput25[2] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[2]"></div>
+                  <div *ngIf="dtPg.resultUcInput25[3] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[3]"></div>
+                  <div *ngIf="dtPg.resultUcInput25[4] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[4]"></div>
+                  <div *ngIf="dtPg.resultUcInput25[5] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[5]"></div>
+                  <div *ngIf="dtPg.resultUcInput25[6] != -1" class="strong round_line" style="width:130px; margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[6]"></div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct014-1" *ngIf="item && item.ht_tpcode == 'hcst027'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text" text-center>
+            <table width="100%">
+              <tr *ngIf="dtPg.resultUcInput13[1] != -1">
+                <td width="50%" text-right height="30">
+                  <button ion-button class="select_btn" [disabled]="dtPg.orderUcInput27[1] != -1" (click)="sendSelectOrder27(1)"><span [innerHTML]="dtPg.textUcInput1[1]"></span></button>
+                </td>
+                <td width="50%" text-left height="30">
+                  <ion-badge *ngIf="dtPg.orderUcInput27[1] != -1" [innerHTML]="dtPg.orderUcInput27[1]"></ion-badge>
+                </td>
+              </tr>
+              <tr *ngIf="dtPg.resultUcInput13[2] != -1">
+                <td width="50%" text-right height="30">
+                  <button ion-button class="select_btn" [disabled]="dtPg.orderUcInput27[2] != -1" (click)="sendSelectOrder27(2)"><span [innerHTML]="dtPg.textUcInput1[2]"></span></button>
+                </td>
+                <td width="50%" text-left height="30">
+                  <ion-badge *ngIf="dtPg.orderUcInput27[2] != -1" [innerHTML]="dtPg.orderUcInput27[2]"></ion-badge>
+                </td>
+              </tr>
+              <tr *ngIf="dtPg.resultUcInput13[3] != -1">
+                <td width="50%" text-right height="30">
+                  <button ion-button class="select_btn" [disabled]="dtPg.orderUcInput27[3] != -1" (click)="sendSelectOrder27(3)"><span [innerHTML]="dtPg.textUcInput1[3]"></span></button>
+                </td>
+                <td width="50%" text-left height="30">
+                  <ion-badge *ngIf="dtPg.orderUcInput27[3] != -1" [innerHTML]="dtPg.orderUcInput27[3]"></ion-badge>
+                </td>
+              </tr>
+              <tr *ngIf="dtPg.resultUcInput13[4] != -1">
+                <td width="50%" text-right height="30">
+                  <button ion-button class="select_btn" [disabled]="dtPg.orderUcInput27[4] != -1" (click)="sendSelectOrder27(4)"><span [innerHTML]="dtPg.textUcInput1[4]"></span></button>
+                </td>
+                <td width="50%" text-left height="30">
+                  <ion-badge *ngIf="dtPg.orderUcInput27[4] != -1" [innerHTML]="dtPg.orderUcInput27[4]"></ion-badge>
+                </td>
+              </tr>
+              <tr *ngIf="dtPg.resultUcInput13[5] != -1">
+                <td width="50%" text-right height="30">
+                  <button ion-button class="select_btn" [disabled]="dtPg.orderUcInput27[5] != -1" (click)="sendSelectOrder27(5)"><span [innerHTML]="dtPg.textUcInput1[5]"></span></button>
+                </td>
+                <td width="50%" text-left height="30">
+                  <ion-badge *ngIf="dtPg.orderUcInput27[5] != -1" [innerHTML]="dtPg.orderUcInput27[5]"></ion-badge>
+                </td>
+              </tr>
+              <tr *ngIf="dtPg.resultUcInput13[6] != -1">
+                <td width="50%" text-right height="30">
+                  <button ion-button class="select_btn" [disabled]="dtPg.orderUcInput27[6] != -1" (click)="sendSelectOrder27(6)"><span [innerHTML]="dtPg.textUcInput1[6]"></span></button>
+                </td>
+                <td width="50%" text-left height="30">
+                  <ion-badge *ngIf="dtPg.orderUcInput27[6] != -1" [innerHTML]="dtPg.orderUcInput27[6]"></ion-badge>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+            <div text-center><button ion-button [disabled]="dtPg.isUcInput27" (click)="sendUcInput27()">제출하기</button> <button ion-button [disabled]="dtPg.isUcInput27" class="btn" (click)="sendSelectClear27()"><ion-icon name="refresh"></ion-icon>선택 취소</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct014-1" *ngIf="item && item.ht_tpcode == 'hcst028'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%">
+              <tr>
+                <td text-center>
+                  <div *ngIf="dtPg.resultUcInput27[1] != -1" class="strong round_line" style="width:200px; margin:2px auto;" text-center [innerHTML]="dtPg.textUcInput1[dtPg.resultUcInput27[1]]"></div>
+                  <div *ngIf="dtPg.resultUcInput27[2] != -1" class="strong round_line" style="width:200px; margin:2px auto;" text-center [innerHTML]="dtPg.textUcInput1[dtPg.resultUcInput27[2]]"></div>
+                  <div *ngIf="dtPg.resultUcInput27[3] != -1" class="strong round_line" style="width:200px; margin:2px auto;" text-center [innerHTML]="dtPg.textUcInput1[dtPg.resultUcInput27[3]]"></div>
+                  <div *ngIf="dtPg.resultUcInput27[4] != -1" class="strong round_line" style="width:200px; margin:2px auto;" text-center [innerHTML]="dtPg.textUcInput1[dtPg.resultUcInput27[4]]"></div>
+                  <div *ngIf="dtPg.resultUcInput27[5] != -1" class="strong round_line" style="width:200px; margin:2px auto;" text-center [innerHTML]="dtPg.textUcInput1[dtPg.resultUcInput27[5]]"></div>
+                  <div *ngIf="dtPg.resultUcInput27[6] != -1" class="strong round_line" style="width:200px; margin:2px auto;" text-center [innerHTML]="dtPg.textUcInput1[dtPg.resultUcInput27[6]]"></div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct014-1" *ngIf="item && item.ht_tpcode == 'hcst029'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%">
+              <tr>
+                <td width="100%" valign="top">
+                  <table width="100%">
+                    <tr>
+                      <td width="25%" height="50" text-center style="border:1px solid #cccccc;background: #efefef;"><b>재준씨의 할 일<br> 우선순위</b></td>
+                      <td width="25%" height="50" text-center style="border:1px solid #cccccc;background: #efefef;"><b>도움 요청하기</b></td>
+                      <td width="25%" height="50" text-center style="border:1px solid #cccccc;background: #efefef;"><b>거절하기</b></td>
+                      <td width="25%" height="50" text-center style="border:1px solid #cccccc;background: #efefef;"><b>하고 있는 일에<br> 집중하기</b></td>
+                    </tr>
+                    <tr>
+                      <td width="25%" text-center valign="top">
+                        <div *ngIf="dtPg.resultUcInput27[1] != -1" class="strong round_line" style="margin:2px auto;" text-center [innerHTML]="dtPg.textUcInput1[dtPg.resultUcInput27[1]]"></div>
+                        <div *ngIf="dtPg.resultUcInput27[2] != -1" class="strong round_line" style="margin:2px auto;" text-center [innerHTML]="dtPg.textUcInput1[dtPg.resultUcInput27[2]]"></div>
+                        <div *ngIf="dtPg.resultUcInput27[3] != -1" class="strong round_line" style="margin:2px auto;" text-center [innerHTML]="dtPg.textUcInput1[dtPg.resultUcInput27[3]]"></div>
+                        <div *ngIf="dtPg.resultUcInput27[4] != -1" class="strong round_line" style="margin:2px auto;" text-center [innerHTML]="dtPg.textUcInput1[dtPg.resultUcInput27[4]]"></div>
+                        <div *ngIf="dtPg.resultUcInput27[5] != -1" class="strong round_line" style="margin:2px auto;" text-center [innerHTML]="dtPg.textUcInput1[dtPg.resultUcInput27[5]]"></div>
+                        <div *ngIf="dtPg.resultUcInput27[6] != -1" class="strong round_line" style="margin:2px auto;" text-center [innerHTML]="dtPg.textUcInput1[dtPg.resultUcInput27[6]]"></div>
+                      </td>
+                      <td width="25%" text-center valign="top">
+                        <div *ngIf="dtPg.resultUcInput21[1] != -1" class="strong round_line" style="margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[1]"></div>
+                        <div *ngIf="dtPg.resultUcInput21[2] != -1" class="strong round_line" style="margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[2]"></div>
+                        <div *ngIf="dtPg.resultUcInput21[3] != -1" class="strong round_line" style="margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[3]"></div>
+                        <div *ngIf="dtPg.resultUcInput21[4] != -1" class="strong round_line" style="margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[4]"></div>
+                        <div *ngIf="dtPg.resultUcInput21[5] != -1" class="strong round_line" style="margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[5]"></div>
+                        <div *ngIf="dtPg.resultUcInput21[6] != -1" class="strong round_line" style="margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[6]"></div>
+                      </td>
+                      <td width="25%" text-center valign="top">
+                        <div *ngIf="dtPg.resultUcInput23[1] != -1" class="strong round_line" style="margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[1]"></div>
+                        <div *ngIf="dtPg.resultUcInput23[2] != -1" class="strong round_line" style="margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[2]"></div>
+                        <div *ngIf="dtPg.resultUcInput23[3] != -1" class="strong round_line" style="margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[3]"></div>
+                        <div *ngIf="dtPg.resultUcInput23[4] != -1" class="strong round_line" style="margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[4]"></div>
+                        <div *ngIf="dtPg.resultUcInput23[5] != -1" class="strong round_line" style="margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[5]"></div>
+                        <div *ngIf="dtPg.resultUcInput23[6] != -1" class="strong round_line" style="margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[6]"></div>
+                      </td>
+                      <td width="25%" text-center valign="top">
+                        <div *ngIf="dtPg.resultUcInput25[1] != -1" class="strong round_line" style="margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[1]"></div>
+                        <div *ngIf="dtPg.resultUcInput25[2] != -1" class="strong round_line" style="margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[2]"></div>
+                        <div *ngIf="dtPg.resultUcInput25[3] != -1" class="strong round_line" style="margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[3]"></div>
+                        <div *ngIf="dtPg.resultUcInput25[4] != -1" class="strong round_line" style="margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[4]"></div>
+                        <div *ngIf="dtPg.resultUcInput25[5] != -1" class="strong round_line" style="margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[5]"></div>
+                        <div *ngIf="dtPg.resultUcInput25[6] != -1" class="strong round_line" style="margin:2px auto;padding:2px;" text-center [innerHTML]="dtPg.textUcInput1[6]"></div>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct013" *ngIf="item && item.ht_tpcode == 'hcst034'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%" *ngIf="!dtPg.isUcQuiz1">
+              <tr>
+                <td>
+                  <div radio-group [(ngModel)]="dtPg.resultUcQuiz1">
+                    <div><ion-radio value="1"></ion-radio> 도움 요청하기</div>
+                    <div><ion-radio value="2"></ion-radio> 거절하기</div>
+                    <div><ion-radio value="3"></ion-radio> 현재에 집중하기</div>
+                    <div><ion-radio value="4"></ion-radio> 일 목록 만들기</div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table width="100%" *ngIf="dtPg.isUcQuiz1">
+              <tr>
+                <td>
+                  <div radio-group [(ngModel)]="dtPg.passUcQuiz1">
+                    <div><ion-radio disabled value="1"></ion-radio> 도움 요청하기</div>
+                    <div><ion-radio disabled value="2"></ion-radio> 거절하기</div>
+                    <div><ion-radio disabled value="3"></ion-radio> 현재에 집중하기</div>
+                    <div><ion-radio disabled value="4"></ion-radio> 일 목록 만들기</div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+            <div text-center><button ion-button [disabled]="dtPg.isUcQuiz1" (click)="sendUcQuiz1()">제출하기</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hcct013" *ngIf="item && item.ht_tpcode == 'hcst035'">
+    <div class="container">
+      <div class="center">
+        <div class="center-wrap">
+          <div class="top-text" *ngIf="item['ht_text1'] != ''" [innerHTML]="item['ht_text1']"></div>
+          <div class="bottom-text">
+            <table width="100%" *ngIf="!dtPg.isUcQuiz2">
+              <tr>
+                <td>
+                  <div radio-group [(ngModel)]="dtPg.resultUcQuiz2">
+                    <div><ion-radio value="1"></ion-radio> 시간관리</div>
+                    <div><ion-radio value="2"></ion-radio> 거절하기</div>
+                    <div><ion-radio value="3"></ion-radio> 시간 진단법</div>
+                    <div><ion-radio value="4"></ion-radio> 도움 요청하기</div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <table width="100%" *ngIf="dtPg.isUcQuiz2">
+              <tr>
+                <td>
+                  <div radio-group [(ngModel)]="dtPg.passUcQuiz2">
+                    <div><ion-radio disabled value="1"></ion-radio> 시간관리</div>
+                    <div><ion-radio disabled value="2"></ion-radio> 거절하기</div>
+                    <div><ion-radio disabled value="3"></ion-radio> 시간 진단법</div>
+                    <div><ion-radio disabled value="4"></ion-radio> 도움 요청하기</div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="bottom-box">
+            <div text-center><button ion-button [disabled]="dtPg.isUcQuiz2" (click)="sendUcQuiz2()">제출하기</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>
+
+<div no-border class="footer-container">
+    <ion-buttons left class="footer-left">
+      <button ion-button class="footer-btn footer-color" (click)="goPrev()">
+         <img src="assets/ht2/ht2/img/common/prev_btn.png" alt="">
+      </button>
+    </ion-buttons>
+
+    <ion-buttons end class="footer-right">
+      <button ion-button class="footer-btn footer-color" (click)="goNext()" >
+        <img src="assets/ht2/ht2/img/common/next_btn.png" alt="">
+      </button>
+    </ion-buttons>
+</div>
+

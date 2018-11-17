@@ -1,0 +1,11 @@
+<ion-grid>
+  <ion-row id="splash-background-image">
+    <img class="splash-screen" [src]="data.backgroundImage" />
+    <div class="logo-title item-fade-in">
+      <img class="logo" [src]="data.logo" />
+      <h2 [innerHTML]="data.title"></h2>
+      <div class="content" [innerHTML]="data.content"></div>
+    </div>
+    <div class="splash-footer"><img class="copyright" [src]="data.copyright" /></div>
+  </ion-row>
+</ion-grid>

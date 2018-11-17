@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>오늘하루 출석기록</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="closeHistoryModal()">
+        <ion-icon name="close-circle"></ion-icon> 닫기
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-grid>
+		<ion-row>
+			<ion-col><b>현재 전체합산 점수</b> : {{totalPoint}}점</ion-col>
+		</ion-row>
+	</ion-grid>
+	<div class="calendar-body">
+		<ion-grid>
+			<ion-row class="calendar-weekday">
+				<ion-col>월</ion-col>
+				<ion-col>화</ion-col>
+				<ion-col>수</ion-col>
+				<ion-col>목</ion-col>
+				<ion-col>금</ion-col>
+			</ion-row>
+			<ion-row class="calendar-date">
+				<ion-col col-1 class="currentDate" *ngFor="let day of dayTables">
+					<div *ngIf="day.num != 0"><ion-badge>{{day.num}}회기</ion-badge></div>
+					<div *ngIf="day.num != 0">({{day.date}})</div>
+					<div class="text" *ngIf="day.num != 0">{{day.total}}점</div>
+					<span *ngIf="day.point != 0"><img src="assets/ht3/ht3/img/common/bullet_point.png" width="7"></span>
+					<span *ngIf="day.bonus != 0"><img src="assets/ht3/ht3/img/common/bullet_bonus.png" width="7"></span>
+					<span *ngIf="day.zone != 0"><img src="assets/ht3/ht3/img/common/bullet_zone.png" width="7"></span>
+					<span *ngIf="day.quiz != 0"><img src="assets/ht3/ht3/img/common/bullet_quiz.png" width="7"></span>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</div>
+	<ion-grid>
+		<ion-row>
+			<ion-col class="text" text-center><img src="assets/ht3/ht3/img/common/bullet_point.png" width="15"><br><b>출석 점수</b></ion-col>
+			<ion-col class="text" text-center><img src="assets/ht3/ht3/img/common/bullet_bonus.png" width="15"><br><b>5회연속<br>참여점수</b></ion-col>
+			<ion-col class="text" text-center><img src="assets/ht3/ht3/img/common/bullet_zone.png" width="15"><br><b>존완료<br>참여점수</b></ion-col>
+			<ion-col class="text" text-center><img src="assets/ht3/ht3/img/common/bullet_quiz.png" width="15"><br><b>퀴즈 점수</b></ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

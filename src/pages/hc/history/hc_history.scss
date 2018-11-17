@@ -1,0 +1,65 @@
+page-history {
+  [harucard-history-list] {
+    width: 90%;
+    position: relative;
+    z-index: 999;
+    .help-title {
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+    .day-title {
+      margin-top: 2px;
+      margin-bottom: 5px;
+      font-weight: 500;
+      color: theme-colors('textColors', 'primary');
+    }
+    .text-color {
+      color: rgba(106, 104, 193, 1.0);
+      font-weight:700;
+    }
+
+    .gray-color {
+      color: rgba(106, 106, 106, 1.0);
+      font-weight: 100;
+    }
+    .bonus-title {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      font-weight: 100;
+      font-size: 0.8rem;
+      color: theme-colors('textColors', 'primary');
+    }
+    .checkbox {
+      margin-top: 5px;
+      margin-bottom: 0px;
+      color: #999999;
+    }
+  }
+
+  .help-box-inner {
+    background-color: rgba(255, 255, 255, 1.0);
+    border-radius: 5px;
+    text-align: center;
+    padding: 15px;
+    margin: 5px 5px;
+    box-shadow: 0 0 3px #d2d2d2;
+
+    .days {
+      font-size : 1.4rem;
+    }
+  }
+
+  .history-box-inner {
+    background-color: rgba(255, 255, 255, 1.0);
+    border-radius: 5px;
+    text-align: center;
+    height: 90px;
+    padding: 15px;
+    margin: 5px 5px;
+    box-shadow: 0 0 3px #d2d2d2;
+
+    .days {
+      font-size : 1.4rem;
+    }
+  }
+}

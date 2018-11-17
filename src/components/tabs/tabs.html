@@ -1,0 +1,4 @@
+
+  <ion-tabs [selectedIndex]="tabIndex" #tabs tabsPlacement='bottom'>
+    <ion-tab [tabTitle]="item.title" [tabIcon]="item.icon" [root]="item.page" (ionSelect)="takeTabPage(item.page)" *ngFor="let item of data;let i = index"></ion-tab>
+  </ion-tabs>
