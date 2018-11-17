@@ -1,0 +1,2 @@
+If Heap Size problem occurs, then on terminal:
+	export NODE_OPTIONS=--max-old-space-size=4096
