@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { Content, ModalController, NavController, NavParams, Platform, App, Tabs, Searchbar, IonicPage } from 'ionic-angular';
-import { UtilProvider } from '../../../providers/hc/util/util';
-import { StorageProvider } from '../../../providers/hc/storage/storage';
-import { ApiProvider } from '../../../providers/hc/api/api';
+import { UtilProvider } from '../../../providers/util/util';
+import { StorageProvider } from '../../../providers/storage/storage';
+import { ApiProvider } from '../../../providers/api/api';
 import { HaruCardDataProvider } from '../../../providers/hc/harucard-data/harucard-data';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { PhotoViewer } from '@ionic-native/photo-viewer';

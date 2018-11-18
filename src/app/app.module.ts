@@ -10,15 +10,16 @@ import { MyApp } from './app.component';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Media } from '@ionic-native/media';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { BackgroundMode } from '@ionic-native/background-mode';
 
-import { ApiProvider } from '../providers/hc/api/api';
-import { LocalNotificationsProvider } from '../providers/hc/local-notifications/local-notifications';
-import { StorageProvider } from '../providers/hc/storage/storage';
-import { UtilProvider } from '../providers/hc/util/util';
+import { ApiProvider } from '../providers/api/api';
+import { LocalNotificationsProvider } from '../providers/local-notifications/local-notifications';
+import { StorageProvider } from '../providers/storage/storage';
+import { UtilProvider } from '../providers/util/util';
 import { HaruCardDataProvider } from '../providers/hc/harucard-data/harucard-data';
 import { HaruCardFavoritesDataProvider } from '../providers/hc/harucard-favorites-data/harucard-favorites-data';
 
@@ -43,11 +44,21 @@ import { HaruCardFavoritesDataProvider } from '../providers/hc/harucard-favorite
     SocialSharing,
     ScreenOrientation,
     AppVersion,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ApiProvider, LocalNotificationsProvider, UtilProvider, StorageProvider,
+    {
+      provide: ErrorHandler,
+      useClass: IonicErrorHandler
+    },
+    ApiProvider,
+    LocalNotificationsProvider,
+    UtilProvider,
+    StorageProvider,
     HaruCardDataProvider,
     HaruCardFavoritesDataProvider,
-    Network, Media, BackgroundMode, PhotoViewer
+    Network,
+    Media,
+    YoutubeVideoPlayer,
+    BackgroundMode,
+    PhotoViewer
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

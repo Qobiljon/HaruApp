@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, Platform, App, Events } from 'ionic-angular';
-import { UtilProvider } from '../../../providers/ht3/util/util';
-import { StorageProvider } from '../../../providers/ht3/storage/storage';
-import { ApiProvider } from '../../../providers/ht3/api/api';
+import { NavController, NavParams, Platform, App, Events, IonicPage } from 'ionic-angular';
+import { UtilProvider } from '../../../providers/util/util';
+import { StorageProvider } from '../../../providers/storage/storage';
+import { ApiProvider } from '../../../providers/api/api';
 import { Ht3PgConfig } from '../config/pg.config';
 import { Ht3Pg01Data } from '../pg01/ht3_pg01.data';
 import { Ht3Pg02Data } from '../pg02/ht3_pg02.data';

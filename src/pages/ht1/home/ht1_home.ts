@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { ModalController, NavController, NavParams, Events, Platform, App, Tabs, IonicPage } from 'ionic-angular';
-import { StorageProvider } from '../../../providers/ht1/storage/storage';
-import { UtilProvider } from '../../../providers/ht1/util/util';
-import { ApiProvider } from '../../../providers/ht1/api/api';
+import { StorageProvider } from '../../../providers/storage/storage';
+import { UtilProvider } from '../../../providers/util/util';
+import { ApiProvider } from '../../../providers/api/api';
 import { BackgroundMode } from '@ionic-native/background-mode';
 import { Ht1PgConfig } from '../config/pg.config';
 import { LocalNotifications } from '@ionic-native/local-notifications';

@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, Platform, NavController, NavParams, ViewController, Events } from 'ionic-angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
-import { StorageProvider } from '../../../providers/ht2/storage/storage';
-import { ApiProvider } from '../../../providers/ht2/api/api';
+import { StorageProvider } from '../../../providers/storage/storage';
+import { ApiProvider } from '../../../providers/api/api';
 import { Chart } from 'chart.js';
 
 @IonicPage()

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, Events } from 'ionic-angular';
-import { StorageProvider } from '../../../providers/ht1/storage/storage';
-import { ApiProvider } from '../../../providers/ht1/api/api';
+import { StorageProvider } from '../../../providers/storage/storage';
+import { ApiProvider } from '../../../providers/api/api';
 
 @IonicPage()
 @Component({

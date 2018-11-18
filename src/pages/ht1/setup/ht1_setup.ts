@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ModalController, IonicPage, NavController, NavParams, Platform, Events } from 'ionic-angular';
-import { UtilProvider } from '../../../providers/ht1/util/util';
-import { StorageProvider } from '../../../providers/ht1/storage/storage';
+import { UtilProvider } from '../../../providers/util/util';
+import { StorageProvider } from '../../../providers/storage/storage';
 
 @IonicPage()
 @Component({

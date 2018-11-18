@@ -3,9 +3,9 @@ import { Content, NavController, ViewController, NavParams, Events, Platform, Io
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Media, MediaObject } from '@ionic-native/media';
 import { StatusBar } from '@ionic-native/status-bar';
-import { StorageProvider } from '../../../providers/ht3/storage/storage';
-import { UtilProvider } from '../../../providers/ht3/util/util';
-import { ApiProvider } from '../../../providers/ht3/api/api';
+import { StorageProvider } from '../../../providers/storage/storage';
+import { UtilProvider } from '../../../providers/util/util';
+import { ApiProvider } from '../../../providers/api/api';
 import { Chart } from 'chart.js';
 import { Ht3PgConfig } from '../config/pg.config';
 import { Ht3Pg40Data } from './ht3_pg40.data';

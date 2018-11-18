@@ -1,7 +1,7 @@
 import { Http } from '@angular/http';
 import { Events, ToastController, Platform} from 'ionic-angular';
 import { Injectable } from '@angular/core';
-import { StorageProvider } from '../storage/storage';
+import { StorageProvider } from '../../storage/storage';
 import 'rxjs/add/operator/map';
  
 @Injectable()

@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Platform, Tabs, Searchbar, IonicPage } from 'ionic-angular';
-import { StorageProvider } from '../../../providers/hc/storage/storage';
+import { StorageProvider } from '../../../providers/storage/storage';
 import { HaruCardFavoritesDataProvider } from '../../../providers/hc/harucard-favorites-data/harucard-favorites-data';
 
 @IonicPage()

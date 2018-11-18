@@ -2,8 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform, MenuController, Events } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { StorageProvider } from '../providers/hc/storage/storage';
-import { UtilProvider } from '../providers/hc/util/util';
+import { StorageProvider } from '../providers/storage/storage';
+import { UtilProvider } from '../providers/util/util';
 import { Network } from '@ionic-native/network';
 import { Media, MediaObject } from '@ionic-native/media';
 import { LocalNotifications } from '@ionic-native/local-notifications';
@@ -14,7 +14,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = 'HcSplashPage';
+  rootPage: any = 'SplashPage';
 
   bgm_file: MediaObject;
   bgm_enable: boolean;
@@ -71,7 +71,7 @@ export class MyApp {
 
         events.subscribe('userInfo:changed', data => {
 
-            let userInfo = storage.getUserInfo();
+            let userInfo = this.storage.getUserInfo();
 
             if (typeof userInfo !== undefined && userInfo !== null) {
               this.userName = userInfo.name;
@@ -114,7 +114,7 @@ export class MyApp {
 
             let view = this.nav.getActive();
 
-            if (view.component.name == "HcLoginPage" || view.component.name == "HcTabsPage") {
+            if (view.component.name == "LoginPage" || view.component.name == "MainPage") {
                 //Double check to exit app
                 if (new Date().getTime() - lastTimeBackPress < timePeriodToExit) {
 
@@ -141,7 +141,7 @@ export class MyApp {
         { title: '하루카드', icon: 'albums', component: 'HcTabsPage', pageName: 'harucard' },
         { title: '즐겨찾기', icon: 'heart', component: 'HcTabsPage', pageName: 'favorites' },
         { title: '설정', icon: 'settings', component: 'HcSetupPage', pageName: 'setup' },
-        { title: '로그아웃', icon: 'power', component: 'HcLoginPage', pageName: 'logout' }
+        { title: '로그아웃', icon: 'power', component: 'LoginPage', pageName: 'logout' }
       ];
   }
 

@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { ModalController, IonicPage, NavController, NavParams, Events, Platform, App, Tabs } from 'ionic-angular';
-import { StorageProvider } from '../../../providers/ht2/storage/storage';
-import { UtilProvider } from '../../../providers/ht2/util/util';
-import { ApiProvider } from '../../../providers/ht2/api/api';
+import { StorageProvider } from '../../../providers/storage/storage';
+import { UtilProvider } from '../../../providers/util/util';
+import { ApiProvider } from '../../../providers/api/api';
 import { BackgroundMode } from '@ionic-native/background-mode';
 import { Ht2PgConfig } from '../config/pg.config';
 import { Chart } from 'chart.js';

@@ -7,4 +7,4 @@ import { NgModule } from '@angular/core';
 	exports: [
 	]
 })
-export class ComponentsModule {}
+export class ComponentsModule { }

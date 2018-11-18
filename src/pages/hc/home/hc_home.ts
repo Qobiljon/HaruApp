@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { ModalController, NavController, NavParams, Events, Platform, Tabs, IonicPage } from 'ionic-angular';
-import { StorageProvider } from '../../../providers/hc/storage/storage';
-import { ApiProvider } from '../../../providers/hc/api/api';
-import { UtilProvider } from '../../../providers/hc/util/util';
+import { StorageProvider } from '../../../providers/storage/storage';
+import { ApiProvider } from '../../../providers/api/api';
+import { UtilProvider } from '../../../providers/util/util';
 import { Chart } from 'chart.js';
 import { BackgroundMode } from '@ionic-native/background-mode';
 import { LocalNotifications } from '@ionic-native/local-notifications';
@@ -481,7 +481,7 @@ export class HcHomePage {
 
 	openHistory()
 	{
-		let historyModal = this.modalCtrl.create('HistoryPage');
+		let historyModal = this.modalCtrl.create('HcHistoryPage');
 
 		historyModal.onDidDismiss(data => {
 			if (data.mode == 'close') {
@@ -494,7 +494,7 @@ export class HcHomePage {
 
 	openRatingHistory()
 	{
-		let ratingHistoryModal = this.modalCtrl.create('RatingHistoryPage');
+		let ratingHistoryModal = this.modalCtrl.create('HcRatingHistoryPage');
 
 		ratingHistoryModal.onDidDismiss(data => {
 		if (data.mode == 'close') {
@@ -509,7 +509,7 @@ export class HcHomePage {
 
 	openRatingGraph()
 	{
-		let ratingGraphModal = this.modalCtrl.create('RatingGraphPage');
+		let ratingGraphModal = this.modalCtrl.create('HcRatingGraphPage');
 
 		ratingGraphModal.onDidDismiss(data => {
 		if (data.mode == 'close') {

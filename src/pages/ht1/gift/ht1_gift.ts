@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform, ViewController, Slides } from 'ionic-angular';
-import { StorageProvider } from '../../../providers/ht1/storage/storage';
-import { UtilProvider } from '../../../providers/ht1/util/util';
+import { StorageProvider } from '../../../providers/storage/storage';
+import { UtilProvider } from '../../../providers/util/util';
 
 @IonicPage()
 @Component({

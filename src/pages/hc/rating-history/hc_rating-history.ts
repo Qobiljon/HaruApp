@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-import { StorageProvider } from '../../../providers/hc/storage/storage';
+import { StorageProvider } from '../../../providers/storage/storage';
 
 @IonicPage()
 @Component({

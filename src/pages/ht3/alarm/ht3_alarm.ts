@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform, ViewController } from 'ionic-angular';
-import { StorageProvider } from '../../../providers/ht3/storage/storage';
-import { UtilProvider } from '../../../providers/ht3/util/util';
+import { StorageProvider } from '../../../providers/storage/storage';
+import { UtilProvider } from '../../../providers/util/util';
 import { Ht3PgConfig } from '../config/pg.config';
 
 @IonicPage()
