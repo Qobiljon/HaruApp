@@ -314,7 +314,7 @@ export class Ht1HomePage {
 				{
 					this.util.alert(this.userName + '님은 현재 오늘하루 [우울·불안] 대상자가 아닙니다.');
 
-					this.rootNavCtrl.push('Ht1LoginPage', {
+					this.rootNavCtrl.push('LoginPage', {
 						pageName: 'logout'
 					});
 					return;

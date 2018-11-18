@@ -556,7 +556,7 @@ export class HcHomePage {
 
 			if (selectCount > 0) {
 				// 기프티콘 선택 팝업
-				let giftModal = this.modalCtrl.create('GiftPage');
+				let giftModal = this.modalCtrl.create('HcGiftPage');
 
 				giftModal.onDidDismiss(data => {
 				if (data.mode == 'close') {
